@@ -1,13 +1,16 @@
 import { DeleteGuyAction } from '~actions/deleteGuy';
 export { type } from '~actions/deleteGuy';
-import { State } from '~/redux/types';
-import { flowT } from '~redux/util';
+import { RootState } from '~/redux/types';
+import composeTransformers from '~redux/transformers/composeTransformers';
 import unsetGuyProp from '~redux/transformers/unsetGuyProp';
 
-export const reducer = (prevState: State, action: DeleteGuyAction): State => {
+export const reducer = (
+    prevState: RootState,
+    action: DeleteGuyAction,
+): RootState => {
     const newGuyId = action.payload;
 
-    return flowT(
+    return composeTransformers(
         unsetGuyProp('init', newGuyId),
         unsetGuyProp('ac', newGuyId),
         unsetGuyProp('hp', newGuyId),

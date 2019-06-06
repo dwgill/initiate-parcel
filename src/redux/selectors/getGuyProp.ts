@@ -1,8 +1,10 @@
-import { State, initialState, GuyProp, GuyPropVal } from '~redux/types';
+import { RootState, initialState, GuyProp, GuyPropVal } from '~redux/types';
 import existy from '~logic/existy';
 
-
-type GetGuyProp = <P extends GuyProp>(prop: P, id: string) => (state: State) => GuyPropVal<P> | undefined;
+type GetGuyProp = <P extends GuyProp>(
+    prop: P,
+    id: string,
+) => (state: RootState) => GuyPropVal<P> | undefined;
 
 const getGuyProp: GetGuyProp = (prop, id) => (prevState = initialState) => {
     const propDict = prevState[prop];
@@ -11,6 +13,6 @@ const getGuyProp: GetGuyProp = (prop, id) => (prevState = initialState) => {
     }
 
     return propDict[id];
-}
+};
 
 export default getGuyProp;
