@@ -1,9 +1,9 @@
-import { InitiateReducer, RootState, initialState } from '~redux/types';
+import { Reducer, RootState, initialState } from '~redux/types';
 import * as newGuy from './newGuy';
 import * as deleteGuy from './deleteGuy';
 import * as editGuy from './editGuy';
 
-export const coreReducer: InitiateReducer = (state = initialState, action) => {
+export const coreReducer: Reducer = (state = initialState, action) => {
     switch (action.type) {
         case newGuy.type:
             return newGuy.reducer(state, action);

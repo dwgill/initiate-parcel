@@ -19,7 +19,9 @@ export type GuyProp = keyof RootState;
 // This type represents the type of a value corresponding to a given guy prop.
 // e.g. GuyPropVal<'note'> is 'string' because a note must be a string
 // e.g. GuyPropVal<'init'> is number | null since initative is a nullable number
-export type GuyPropVal<P extends GuyProp> = RootState[P][GuyId];
+export type GuyPropVal<P extends GuyProp> = RootState[P][GuyPropKey<P>];
+// The type of key corresponding to a given prop
+export type GuyPropKey<P extends GuyProp> = keyof RootState[P];
 
 export type Guy = {
     init: number | null;

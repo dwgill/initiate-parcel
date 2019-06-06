@@ -9,16 +9,16 @@ export type Payload<P extends GuyProp> = {
     value: GuyPropVal<P>;
 };
 
-export type EditGuyAction = {
+export type EditGuyAction<P extends GuyProp> = {
     type: Type;
-    payload: Payload<GuyProp>;
+    payload: Payload<P>;
 };
 
 export default <P extends GuyProp>(
     id: GuyId,
     prop: P,
     value: GuyPropVal<P>,
-): EditGuyAction => ({
+): EditGuyAction<P> => ({
     type,
     payload: {
         id,
