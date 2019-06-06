@@ -1,8 +1,14 @@
-import { Transformer, GuyProp, GuyId } from '../types';
+import existy from '~logic/existy';
+import { GuyProp, GuyPropKey, initialState, Transformer } from '../types';
 
-type UnsetGuyProp = (prop: GuyProp, id: GuyId) => Transformer;
+const unsetGuyProp = <P extends GuyProp>(
+    prop: P,
+    id: GuyPropKey<P>,
+): Transformer => (prevState = initialState) => {
+    if (!existy(prevState[prop])) {
+        return prevState;
+    }
 
-const unsetGuyProp: UnsetGuyProp = (prop, id) => prevState => {
     const newState = {
         ...prevState,
         [prop]: {

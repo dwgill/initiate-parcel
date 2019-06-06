@@ -1,20 +1,17 @@
-import { GuyProp, GuyPropVal, GuyId } from '../redux/types';
+import { GuyProp, GuyPropVal, GuyId, GuyPropKey } from '../redux/types';
 
 export const type = 'EDIT_GUY';
-export type Type = typeof type;
 
-export type Payload<P extends GuyProp> = {
-    id: GuyId;
-    prop: P;
-    value: GuyPropVal<P>;
-};
+export interface EditGuyAction<P extends GuyProp> {
+    type: typeof type;
+    payload: {
+        id: GuyPropKey<P>;
+        prop: P;
+        value: GuyPropVal<P>;
+    };
+}
 
-export type EditGuyAction<P extends GuyProp> = {
-    type: Type;
-    payload: Payload<P>;
-};
-
-export default <P extends GuyProp>(
+export const create = <P extends GuyProp>(
     id: GuyId,
     prop: P,
     value: GuyPropVal<P>,
@@ -26,3 +23,5 @@ export default <P extends GuyProp>(
         value,
     },
 });
+
+export default create;

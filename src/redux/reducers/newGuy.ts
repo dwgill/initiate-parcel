@@ -1,8 +1,9 @@
-import { NewGuyAction } from '~actions/newGuy';
 import { RootState } from '~/redux/types';
-export { type } from '~actions/newGuy';
-import setGuyProp from '~redux/transformers/setGuyProp';
+import { NewGuyAction } from '~actions/newGuy';
 import composeTransformers from '~redux/transformers/composeTransformers';
+import setGuyProp from '~redux/transformers/setGuyProp';
+
+export { type } from '~actions/newGuy';
 
 export const reducer = (
     prevState: RootState,

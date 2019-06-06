@@ -1,4 +1,4 @@
-import { Reducer, RootState, initialState } from '~redux/types';
+import { Reducer, RootState, initialState, GuyProp } from '~redux/types';
 import * as newGuy from './newGuy';
 import * as deleteGuy from './deleteGuy';
 import * as editGuy from './editGuy';
@@ -12,8 +12,9 @@ export const coreReducer: Reducer = (state = initialState, action) => {
         case editGuy.type:
             return editGuy.reducer(state, action);
         default:
-            return defaultCase(state, action);
+            return unacceptableDefault(state, action);
     }
 };
 
-const defaultCase = (state: RootState, _: never) => state;
+const acceptableDefault = (state: RootState, _: any) => state;
+const unacceptableDefault = (state: RootState, _: never) => state;

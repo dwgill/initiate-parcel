@@ -1,12 +1,9 @@
-import { RootState, Transformer } from '~redux/types';
+import { Transformer } from '~redux/types';
 
-export const composeTransformers = (
-    ...transformers: Transformer[]
-): Transformer => (prevState: RootState) => {
-    return transformers.reduce(
-        (state, transformer) => transformer(state),
-        prevState,
-    );
+type ComposeTrans = (...transformers: Transformer[]) => Transformer;
+
+export const composeTransformers: ComposeTrans = (...trans) => prevState => {
+    return trans.reduce((state, tformer) => tformer(state), prevState);
 };
 
 export default composeTransformers;

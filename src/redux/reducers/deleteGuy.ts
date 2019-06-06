@@ -1,8 +1,9 @@
-import { DeleteGuyAction } from '~actions/deleteGuy';
-export { type } from '~actions/deleteGuy';
 import { RootState } from '~/redux/types';
+import { DeleteGuyAction } from '~actions/deleteGuy';
 import composeTransformers from '~redux/transformers/composeTransformers';
 import unsetGuyProp from '~redux/transformers/unsetGuyProp';
+
+export { type } from '~actions/deleteGuy';
 
 export const reducer = (
     prevState: RootState,

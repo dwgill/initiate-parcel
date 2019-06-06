@@ -1,16 +1,18 @@
 import { GuyId } from '~redux/types';
 import existy from '~logic/existy';
+import newGuyId from '~logic/newGuyId';
 
 export const type = 'NEW_GUY';
-export type Type = typeof type;
-export type Payload = GuyId;
-export type NewGuyAction = { type: Type; payload: Payload };
+export interface NewGuyAction {
+    type: typeof type;
+    payload: GuyId;
+}
 
-export default (id: GuyId | undefined): NewGuyAction => {
-    const finalId = existy(id) ? id : new Date().toISOString();
-
+export const create = (id: NonNullable<GuyId> = newGuyId()): NewGuyAction => {
     return {
         type,
-        payload: finalId,
+        payload: id,
     };
 };
+
+export default create;

@@ -1,15 +1,15 @@
-import {
-    Transformer,
-    initialState,
-    GuyId,
-    GuyProp,
-    GuyPropVal,
-} from '../types';
 import existy from '~logic/existy';
+import {
+    GuyProp,
+    GuyPropKey,
+    GuyPropVal,
+    initialState,
+    Transformer,
+} from '../types';
 
 type SetGuyProp = <P extends GuyProp>(
     prop: P,
-    id: GuyId,
+    id: GuyPropKey<P>,
     val: GuyPropVal<P>,
 ) => Transformer;
 
