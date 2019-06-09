@@ -1,0 +1,16 @@
+:global {
+    @import 'normalize.css';
+}
+
+:global body {
+    min-height: 100vh;
+    min-width: 100vw;
+}
+
+:global #app {
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+}

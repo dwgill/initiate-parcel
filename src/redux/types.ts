@@ -1,13 +1,17 @@
 import { Reducer as ReduxReducer } from 'redux';
 import { Action } from '~actions/types';
 import { InitiateStore } from './store';
+import { ThunkDispatch, ThunkAction as RawThunkAction } from 'redux-thunk';
 
 export { Action, ActionType as ActionTypes } from '~actions/types';
 
-export type ThunkAction<R> = (
-    dispatch: InitiateStore['dispatch'],
-    getState: InitiateStore['getState'],
-) => R;
+export type ThunkAction<R> = InitiateStore['dispatch'] extends ThunkDispatch<
+    infer S,
+    infer E,
+    infer A
+>
+    ? RawThunkAction<R, S, E, A>
+    : never;
 
 export type GuyId = string;
 
