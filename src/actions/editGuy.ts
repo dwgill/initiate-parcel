@@ -11,7 +11,7 @@ export interface EditGuyAction<P extends GuyProp> {
     };
 }
 
-export const create = <P extends GuyProp>(
+const editGuy = <P extends GuyProp>(
     id: GuyId,
     prop: P,
     value: GuyPropVal<P>,
@@ -24,4 +24,6 @@ export const create = <P extends GuyProp>(
     },
 });
 
-export default create;
+export const create = editGuy;
+
+export default editGuy;

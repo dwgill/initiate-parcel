@@ -8,11 +8,13 @@ export interface NewGuyAction {
     payload: GuyId;
 }
 
-export const create = (id: NonNullable<GuyId> = newGuyId()): NewGuyAction => {
+const newGuy = (id: NonNullable<GuyId> = newGuyId()): NewGuyAction => {
     return {
         type,
         payload: id,
     };
 };
 
-export default create;
+export const create = newGuy;
+
+export default newGuy;

@@ -5,7 +5,7 @@ import getGuyProp from '~redux/selectors/getGuyProp';
 import newGuyId from '~logic/newGuyId';
 import { batch } from 'react-redux';
 
-export const create = (
+const cloneGuy = (
     origId: NonNullable<GuyId>,
     newId: NonNullable<GuyId> = newGuyId(),
 ): ThunkAction<void> => (dispatch, getState) => {
@@ -21,4 +21,6 @@ export const create = (
     });
 };
 
-export default create;
+export const create = cloneGuy;
+
+export default cloneGuy;

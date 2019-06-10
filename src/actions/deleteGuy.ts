@@ -6,9 +6,11 @@ export interface DeleteGuyAction {
     payload: GuyId;
 }
 
-export const create = (id: GuyId): DeleteGuyAction => ({
+const deleteGuy = (id: GuyId): DeleteGuyAction => ({
     type,
     payload: id,
 });
 
-export default create;
+export const create = deleteGuy;
+
+export default deleteGuy;
