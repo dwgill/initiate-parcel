@@ -5,7 +5,7 @@ import { Action } from '~actions/types';
 import { create as createNewGuyAction } from '~actions/newGuy';
 
 type Props = {
-    children: React.ReactElement;
+    children: React.ReactNode;
 };
 
 const ReduxProvider: React.FC<Props> = ({ children }) => {
