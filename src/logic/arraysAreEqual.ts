@@ -10,7 +10,9 @@ function arraysAreEqual<X>(a: ReadonlyArray<X>, b: ReadonlyArray<X>): boolean {
     }
 
     for (var i = 0; i < a.length; ++i) {
-        if (a[i] !== b[i]) return false;
+        if (a[i] !== b[i]) {
+            return false;
+        }
     }
     return true;
 }
