@@ -1,0 +1,21 @@
+@value constants: "~/constants.css";
+@value sans-font, serif-font, purple, white, gap, maxPhoneWidth from constants;
+
+.card {
+    /* border: 1rem solid purple; */
+    border-radius: 6px;
+    box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+    padding: 1rem;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+
+.cardTitle {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    font-size: 2rem;
+    font-family: serif-font;
+}

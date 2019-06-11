@@ -11,10 +11,15 @@ type Props = {
 
 const ReduxProvider: React.FC<Props> = ({ children }) => {
     React.useEffect(() => {
+        store.dispatch(createNewGuyAction('archideld'));
+        store.dispatch(editGuy('archideld', 'init', 15));
+        store.dispatch(editGuy('archideld', 'name', 'archideld has 15 init'));
         store.dispatch(createNewGuyAction('foobar'));
-        store.dispatch(editGuy('foobar', 'init', 15));
-        store.dispatch(editGuy('foobar', 'ac', 13));
-        store.dispatch(editGuy('foobar', 'name', 'Archideld'));
+        store.dispatch(editGuy('foobar', 'init', 10));
+        store.dispatch(editGuy('foobar', 'name', 'foobar has 10 init'));
+        store.dispatch(createNewGuyAction('barfoo'));
+        store.dispatch(editGuy('barfoo', 'init', 8));
+        store.dispatch(editGuy('barfoo', 'name', 'barfoo has 8 init'));
     }, []);
 
     return <Provider<Action> store={store}>{children}</Provider>;

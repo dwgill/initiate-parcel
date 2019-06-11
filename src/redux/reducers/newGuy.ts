@@ -1,7 +1,9 @@
 import { RootState } from '~/redux/types';
 import { NewGuyAction } from '~actions/newGuy';
-import composeTransformers from '~redux/transformers/composeTransformers';
+import flowTransformers from '~redux/transformers/composeTransformers';
 import setGuyProp from '~redux/transformers/setGuyProp';
+import addIdToOrdering from '~redux/transformers/addIdToOrdering';
+import sortGuyOrder from '~redux/transformers/sortGuyOrder';
 
 export { type } from '~actions/newGuy';
 
@@ -11,12 +13,14 @@ export const reducer = (
 ): RootState => {
     const newGuyId = action.payload;
 
-    return composeTransformers(
+    return flowTransformers(
         setGuyProp('init', newGuyId, null),
         setGuyProp('ac', newGuyId, null),
         setGuyProp('hp', newGuyId, null),
         setGuyProp('name', newGuyId, ''),
         setGuyProp('note', newGuyId, ''),
         setGuyProp('bias', newGuyId, 0),
+        addIdToOrdering(newGuyId),
+        sortGuyOrder(),
     )(prevState);
 };

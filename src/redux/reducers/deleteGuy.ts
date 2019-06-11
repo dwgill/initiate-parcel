@@ -1,7 +1,8 @@
 import { RootState } from '~/redux/types';
 import { DeleteGuyAction } from '~actions/deleteGuy';
-import composeTransformers from '~redux/transformers/composeTransformers';
+import flowTransformers from '~redux/transformers/composeTransformers';
 import unsetGuyProp from '~redux/transformers/unsetGuyProp';
+import removeIdFromOrdering from '~redux/transformers/removeIdFromOrdering';
 
 export { type } from '~actions/deleteGuy';
 
@@ -9,14 +10,15 @@ export const reducer = (
     prevState: RootState,
     action: DeleteGuyAction,
 ): RootState => {
-    const newGuyId = action.payload;
+    const guyId = action.payload;
 
-    return composeTransformers(
-        unsetGuyProp('init', newGuyId),
-        unsetGuyProp('ac', newGuyId),
-        unsetGuyProp('hp', newGuyId),
-        unsetGuyProp('name', newGuyId),
-        unsetGuyProp('note', newGuyId),
-        unsetGuyProp('bias', newGuyId),
+    return flowTransformers(
+        unsetGuyProp('init', guyId),
+        unsetGuyProp('ac', guyId),
+        unsetGuyProp('hp', guyId),
+        unsetGuyProp('name', guyId),
+        unsetGuyProp('note', guyId),
+        unsetGuyProp('bias', guyId),
+        removeIdFromOrdering(guyId),
     )(prevState);
 };

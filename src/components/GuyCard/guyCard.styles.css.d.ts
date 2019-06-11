@@ -6,6 +6,7 @@ declare const styles: {
     readonly white: string;
     readonly gap: string;
     readonly maxPhoneWidth: string;
-    readonly list: string;
+    readonly card: string;
+    readonly cardTitle: string;
 };
 export = styles;

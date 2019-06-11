@@ -2,9 +2,9 @@ import existy from '~logic/existy';
 import { GuyProp, GuyPropKey, GuyPropVal, RootState } from '~redux/types';
 
 const getGuyProp = <P extends GuyProp>(prop: P, id: GuyPropKey<P>) => (
-    prevState: RootState,
+    state: RootState,
 ): GuyPropVal<P> | undefined => {
-    const propDict = prevState[prop];
+    const propDict = state.guyProperties[prop];
     if (!existy(propDict)) {
         return undefined;
     }

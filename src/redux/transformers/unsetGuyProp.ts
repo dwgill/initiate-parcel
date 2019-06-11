@@ -1,22 +1,13 @@
-import existy from '~logic/existy';
-import { GuyProp, GuyPropKey, initialState, Transformer } from '../types';
+import produce from 'immer';
+import { GuyProp, GuyPropKey, Transformer } from '../types';
 
 const unsetGuyProp = <P extends GuyProp>(
     prop: P,
     id: GuyPropKey<P>,
-): Transformer => (prevState = initialState) => {
-    if (!existy(prevState[prop])) {
-        return prevState;
-    }
-
-    const newState = {
-        ...prevState,
-        [prop]: {
-            ...prevState[prop],
-        },
-    };
-
-    delete newState[prop][id];
+): Transformer => prevState => {
+    const newState = produce(prevState, draft => {
+        delete draft.guyProperties[prop][id];
+    });
 
     return newState;
 };

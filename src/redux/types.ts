@@ -15,29 +15,34 @@ export type ThunkAction<R> = InitiateStore['dispatch'] extends ThunkDispatch<
 
 export type GuyId = string;
 
-export type RootState = {
-    /** record of all the initiative rolls of the combatants. */
-    init: Record<GuyId, number | null>;
-    /** record of all the armor classes of the combatants. */
-    ac: Record<GuyId, number | null>;
-    /** record of the HP of the combatants. */
-    hp: Record<GuyId, number | null>;
-    /** record of the combatants' names. */
-    name: Record<GuyId, string>;
-    /** record of notes on each combatant. */
-    note: Record<GuyId, string>;
-    /** record of bias used for breaking ties in initiative. */
-    bias: Record<GuyId, number>;
-};
+export interface RootState {
+    guyProperties: {
+        /** record of all the initiative rolls of the combatants. */
+        init: Record<GuyId, number | null>;
+        /** record of all the armor classes of the combatants. */
+        ac: Record<GuyId, number | null>;
+        /** record of the HP of the combatants. */
+        hp: Record<GuyId, number | null>;
+        /** record of the combatants' names. */
+        name: Record<GuyId, string>;
+        /** record of notes on each combatant. */
+        note: Record<GuyId, string>;
+        /** record of bias used for breaking ties in initiative. */
+        bias: Record<GuyId, number>;
+    };
+    guyOrdering: ReadonlyArray<GuyId>;
+}
 
 // This type represents the official "name" of a property of a guy
-export type GuyProp = keyof RootState;
+export type GuyProp = keyof RootState['guyProperties'];
 // This type represents the type of a value corresponding to a given guy prop.
 // e.g. GuyPropVal<'note'> is 'string' because a note must be a string
 // e.g. GuyPropVal<'init'> is number | null since initative is a nullable number
-export type GuyPropVal<P extends GuyProp> = RootState[P][GuyPropKey<P>];
+export type GuyPropVal<
+    P extends GuyProp
+> = RootState['guyProperties'][P][GuyPropKey<P>];
 // The type of key corresponding to a given prop
-export type GuyPropKey<P extends GuyProp> = keyof RootState[P];
+export type GuyPropKey<P extends GuyProp> = keyof RootState['guyProperties'][P];
 
 /**
  * If you were to collect the properties of a guy into an object,
@@ -60,13 +65,16 @@ export type Transducer = (reducer: Reducer) => Reducer;
 export type Transformer = (state: RootState) => RootState;
 
 export const initialState: RootState = {
-    ac: {},
-    bias: {},
-    hp: {},
-    init: {},
-    name: {},
-    note: {},
+    guyProperties: {
+        ac: {},
+        bias: {},
+        hp: {},
+        init: {},
+        name: {},
+        note: {},
+    },
+    guyOrdering: [],
 };
 
 // A set of all the possible guy property names.
-export const allGuyProps = Object.keys(initialState) as [GuyProp];
+export const allGuyProps = Object.keys(initialState.guyProperties) as [GuyProp];

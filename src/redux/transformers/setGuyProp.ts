@@ -1,11 +1,5 @@
-import existy from '~logic/existy';
-import {
-    GuyProp,
-    GuyPropKey,
-    GuyPropVal,
-    initialState,
-    Transformer,
-} from '../types';
+import produce from 'immer';
+import { GuyProp, GuyPropKey, GuyPropVal, Transformer } from '../types';
 
 type SetGuyProp = <P extends GuyProp>(
     prop: P,
@@ -13,26 +7,12 @@ type SetGuyProp = <P extends GuyProp>(
     val: GuyPropVal<P>,
 ) => Transformer;
 
-const setGuyProp: SetGuyProp = (prop, id, val) => (
-    prevState = initialState,
-) => {
-    const prevPropDict = prevState[prop];
+const setGuyProp: SetGuyProp = (prop, id, val) => prevState => {
+    const newState = produce(prevState, draft => {
+        draft.guyProperties[prop][id] = val;
+    });
 
-    if (existy(prevPropDict) && prevPropDict[id] === val) {
-        return prevState;
-    }
-
-    const newPropDict = !existy(prevPropDict)
-        ? { [id]: val }
-        : {
-              ...prevPropDict,
-              [id]: val,
-          };
-
-    return {
-        ...prevState,
-        [prop]: newPropDict,
-    };
+    return newState;
 };
 
 export default setGuyProp;
