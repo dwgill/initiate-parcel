@@ -5,7 +5,10 @@
 @value serif-font: 'Vollkorn', serif;
 
 @value purple: #9077ad;
+@value darkPurple: #725f89;
 @value white: #fcf9ff;
+
+@value miniSpace: 1rem;
 
 @value gap: 2rem;
 @value minTabletWidth: 769px;

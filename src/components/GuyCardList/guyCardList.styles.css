@@ -2,11 +2,9 @@
 @value sans-font, serif-font, purple, white, gap, maxPhoneWidth from constants;
 
 .list {
-    padding: gap;
 }
 
 @media screen and (max-width: maxPhoneWidth) {
     .list {
-        padding: 0;
     }
 }

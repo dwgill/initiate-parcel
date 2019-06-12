@@ -1,0 +1,23 @@
+@value constants: "~/constants.css";
+@value sans-font, serif-font, purple, miniSpace, white, gap, maxPhoneWidth from constants;
+
+.panel {
+    padding: gap;
+}
+
+.bar {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    align-items: stretch;
+    height: 3rem;
+    /* background-color: purple; */
+    margin-bottom: miniSpace;
+}
+
+@media screen and (max-width: maxPhoneWidth) {
+    .panel {
+        padding: 0;
+        padding-top: gap;
+    }
+}

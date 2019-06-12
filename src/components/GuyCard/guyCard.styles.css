@@ -1,5 +1,5 @@
 @value constants: "~/constants.css";
-@value sans-font, serif-font, purple, gap, maxPhoneWidth from constants;
+@value sans-font, serif-font, purple, gap, maxPhoneWidth, miniSpace from constants;
 
 .card {
     /* border: 1rem solid purple; */
@@ -14,7 +14,7 @@
 }
 
 .card + .card {
-    margin-top: 1rem;
+    margin-top: miniSpace;
 }
 
 .cardTitle {

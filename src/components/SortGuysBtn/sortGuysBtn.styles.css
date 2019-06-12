@@ -1,0 +1,37 @@
+@value constants: "~/constants.css";
+@value sans-font, serif-font, purple, darkPurple, maxPhoneWidth, miniSpace from constants;
+
+.button {
+    background-color: purple;
+    border-color: transparent;
+    color: white;
+    font-family: sans-font;
+    font-weight: bold;
+    border-width: 1px;
+    cursor: pointer;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: calc(0.375em - 1px);
+    padding-left: 0.75em;
+    padding-right: 0.75em;
+    padding-top: calc(0.375em - 1px);
+    text-align: center;
+    white-space: nowrap;
+    border-radius: 4px;
+    box-shadow: none;
+    width: 7.5rem;
+}
+
+.button:active {
+    background-color: darkPurple;
+}
+
+.icon {
+    height: 1.2rem;
+    width: 1.2rem;
+    fill: white;
+    filter: invert(100%);
+    /* width: fit-content; */
+}

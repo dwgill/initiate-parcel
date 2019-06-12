@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useRef } from 'react';
 import { useName } from '~hooks/useGuyProp';
-import * as styles from './guyCard.styles.css';
+import styles from './guyCard.styles.css';
 import { Draggable } from 'react-beautiful-dnd';
 
 const GuyCard = ({ id, index }) => {
