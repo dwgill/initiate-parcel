@@ -1,17 +1,38 @@
 import * as React from 'react';
-import * as styles from './initiativeList.styles.css';
 import { useSelector } from 'react-redux';
-import getInitiativeOrder from '~redux/selectors/getGuyIds.ts';
 import GuyCard from '~components/GuyCard/guyCard.component.jsx';
+import getInitiativeOrder from '~redux/selectors/getInitiativeOrder.ts';
+import * as styles from './initiativeList.styles.css';
+import { DragDropContext, Droppable } from 'react-beautiful-dnd';
+import useGuyCardDragEnd from '~hooks/useDragEnd';
 
 const InitiativeList = () => {
     const guyIds = useSelector(getInitiativeOrder);
+    const handleDragEnd = useGuyCardDragEnd();
+    // const handleDragEnd = () => {};
+    // const handleDragStart = () => {};
+    // const handleDragUpdate = () => {};
     return (
-        <div className={styles.list}>
-            {guyIds.map(guyId => (
-                <GuyCard key={guyId} id={guyId} />
-            ))}
-        </div>
+        <DragDropContext
+            onDragEnd={handleDragEnd}
+            // onDragStart={handleDragStart}
+            // onDragUpdate={handleDragUpdate}
+        >
+            <Droppable droppableId="initiative-list">
+                {provided => (
+                    <div
+                        className={styles.list}
+                        ref={provided.innerRef}
+                        {...provided.droppableProps}
+                    >
+                        {guyIds.map((guyId, index) => (
+                            <GuyCard key={guyId} id={guyId} index={index} />
+                        ))}
+                        {provided.placeholder}
+                    </div>
+                )}
+            </Droppable>
+        </DragDropContext>
     );
 };
 

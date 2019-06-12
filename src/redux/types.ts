@@ -5,11 +5,9 @@ import { ThunkDispatch, ThunkAction as RawThunkAction } from 'redux-thunk';
 
 export { Action, ActionType as ActionTypes } from '~actions/types';
 
-export type ThunkAction<R> = InitiateStore['dispatch'] extends ThunkDispatch<
-    infer S,
-    infer E,
-    infer A
->
+export type ThunkAction<
+    R = void
+> = InitiateStore['dispatch'] extends ThunkDispatch<infer S, infer E, infer A>
     ? RawThunkAction<R, S, E, A>
     : never;
 
@@ -31,6 +29,9 @@ export interface RootState {
         bias: Record<GuyId, number>;
     };
     guyOrdering: ReadonlyArray<GuyId>;
+    settings: {
+        autoSort: boolean;
+    };
 }
 
 // This type represents the official "name" of a property of a guy
@@ -74,6 +75,9 @@ export const initialState: RootState = {
         note: {},
     },
     guyOrdering: [],
+    settings: {
+        autoSort: true,
+    },
 };
 
 // A set of all the possible guy property names.

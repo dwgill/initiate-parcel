@@ -1,7 +1,9 @@
-import { Reducer, RootState, initialState, GuyProp } from '~redux/types';
-import * as newGuy from './newGuy';
+import { initialState, Reducer, RootState } from '~redux/types';
 import * as deleteGuy from './deleteGuy';
 import * as editGuy from './editGuy';
+import * as newGuy from './newGuy';
+import * as setAutoSort from './setAutoSort';
+import * as setGuyIndex from './setGuyIndex';
 
 export const coreReducer: Reducer = (state = initialState, action) => {
     switch (action.type) {
@@ -11,6 +13,10 @@ export const coreReducer: Reducer = (state = initialState, action) => {
             return deleteGuy.reducer(state, action);
         case editGuy.type:
             return editGuy.reducer(state, action);
+        case setAutoSort.type:
+            return setAutoSort.reducer(state, action);
+        case setGuyIndex.type:
+            return setGuyIndex.reducer(state, action);
         default:
             return unacceptableDefault(state, action);
     }

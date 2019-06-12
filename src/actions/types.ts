@@ -1,17 +1,18 @@
-import * as deleteGuy from './deleteGuy';
-import * as editGuy from './editGuy';
-import * as newGuy from './newGuy';
+import { type as deleteGuy, DeleteGuyAction } from './deleteGuy';
+import { type as editGuy, EditGuyAction } from './editGuy';
+import { type as newGuy, NewGuyAction } from './newGuy';
+import { type as setAutoSort, SetAutoSortAction } from './setAutoSort';
+import { type as setGuyIndex, SetGuyIndexAction } from './setGuyIndex';
+import { GuyProp } from '~redux/types';
 
 export type ActionCreatorMap = {
-    [deleteGuy.type]: typeof deleteGuy.create;
-    [newGuy.type]: typeof newGuy.create;
-    [editGuy.type]: typeof editGuy.create;
+    [deleteGuy]: DeleteGuyAction;
+    [editGuy]: EditGuyAction<GuyProp>;
+    [newGuy]: NewGuyAction;
+    [setAutoSort]: SetAutoSortAction;
+    [setGuyIndex]: SetGuyIndexAction;
 };
 
 export type ActionType = keyof ActionCreatorMap;
-export type ActionCreator = ActionCreatorMap[ActionType];
-export type Action = ReturnType<ActionCreator>;
-export type ActionCreatorForType<A extends ActionType> = ActionCreatorMap[A];
-export type ActionForType<A extends ActionType> = ReturnType<
-    ActionCreatorForType<A>
->;
+export type Action = ActionCreatorMap[keyof ActionCreatorMap];
+export type ActionForType<A extends ActionType> = ActionCreatorMap[A];
