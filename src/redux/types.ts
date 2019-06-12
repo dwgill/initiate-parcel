@@ -2,12 +2,18 @@ import { Reducer as ReduxReducer } from 'redux';
 import { Action } from '~actions/types';
 import { InitiateStore } from './store';
 import { ThunkDispatch, ThunkAction as RawThunkAction } from 'redux-thunk';
+import { TypedUseSelectorHook } from 'react-redux';
 
 export { Action, ActionType as ActionTypes } from '~actions/types';
 
-export type ThunkAction<
-    R = void
-> = InitiateStore['dispatch'] extends ThunkDispatch<infer S, infer E, infer A>
+export type Dispatch = InitiateStore['dispatch'];
+export type UseSelector = TypedUseSelectorHook<RootState>;
+
+export type ThunkAction<R = void> = Dispatch extends ThunkDispatch<
+    infer S,
+    infer E,
+    infer A
+>
     ? RawThunkAction<R, S, E, A>
     : never;
 
@@ -41,9 +47,8 @@ export type GuyProp = keyof RootState['guyProperties'];
 // e.g. GuyPropVal<'init'> is number | null since initative is a nullable number
 export type GuyPropVal<
     P extends GuyProp
-> = RootState['guyProperties'][P][GuyPropKey<P>];
+> = RootState['guyProperties'][P][GuyId];
 // The type of key corresponding to a given prop
-export type GuyPropKey<P extends GuyProp> = keyof RootState['guyProperties'][P];
 
 /**
  * If you were to collect the properties of a guy into an object,

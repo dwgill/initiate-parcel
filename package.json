@@ -20,7 +20,7 @@
         "react-beautiful-dnd": "^11.0.4",
         "react-dom": "^16.8.6",
         "react-flip-toolkit": "^6.6.3",
-        "react-redux": "^7.1.0-rc.1",
+        "react-redux": "^7.1.0",
         "redux": "^4.0.1",
         "redux-thunk": "^2.3.0"
     },

@@ -28,7 +28,11 @@ const GuyCardList = () => {
                             {...provided.droppableProps}
                         >
                             {guyIds.map((guyId, index) => (
-                                <GuyCard key={guyId} id={guyId} index={index} />
+                                <GuyCard
+                                    key={guyId}
+                                    guyId={guyId}
+                                    index={index}
+                                />
                             ))}
                             {provided.placeholder}
                         </div>

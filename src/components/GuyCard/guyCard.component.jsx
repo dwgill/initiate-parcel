@@ -1,34 +1,21 @@
-import React, { useCallback, useEffect, useRef } from 'react';
-import { useName } from '~hooks/useGuyProp';
-import styles from './guyCard.styles.css';
+import React from 'react';
 import { Draggable } from 'react-beautiful-dnd';
 import { Flipped } from 'react-flip-toolkit';
+import NameInput from '~components/NameInput/nameInput.component';
+import styles from './guyCard.styles.css';
 
-const GuyCard = ({ id, index }) => {
-    const [name, setName] = useName(id);
-    const handleChangeName = useCallback(e => setName(e.target.value), [
-        setName,
-    ]);
-    const nameRef = useRef(null);
-    useEffect(() => nameRef.current.focus(), []);
-
+const GuyCard = ({ guyId, index }) => {
     return (
-        <Draggable draggableId={id} index={index}>
+        <Draggable draggableId={guyId} index={index}>
             {provided => (
-                <Flipped flipId={id}>
+                <Flipped flipId={guyId}>
                     <div
                         className={styles.card}
                         ref={provided.innerRef}
                         {...provided.draggableProps}
                         {...provided.dragHandleProps}
                     >
-                        <input
-                            type="text"
-                            value={name}
-                            onChange={handleChangeName}
-                            className={styles.cardTitle}
-                            ref={nameRef}
-                        />
+                        <NameInput guyId={guyId} />
                     </div>
                 </Flipped>
             )}
