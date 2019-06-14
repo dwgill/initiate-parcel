@@ -1,7 +1,7 @@
-import { allGuyProps, Guy, GuyId, RootState } from '~redux/types';
+import { allGuyProps, Guy, RootState } from '~redux/types';
 import getGuyProp from './getGuyProp';
 
-const getPartialGuy = (id: GuyId) => (state: RootState): Partial<Guy> => {
+const getPartialGuy = (id: string) => (state: RootState): Partial<Guy> => {
     const emptyGuy: Partial<Guy> = {};
 
     const guy = allGuyProps.reduce(

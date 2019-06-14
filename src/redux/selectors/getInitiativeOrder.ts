@@ -1,4 +1,4 @@
-import { RootState, GuyId, allGuyProps } from '~redux/types';
+import { RootState, allGuyProps } from '~redux/types';
 
 const checkPropDictsMirrorIds = (state: RootState): void => {
     const idSet = new Set(state.guyOrdering);
@@ -22,7 +22,7 @@ const checkPropDictsMirrorIds = (state: RootState): void => {
     }
 };
 
-const getInitiativeOrder = (state: RootState): ReadonlyArray<GuyId> => {
+const getInitiativeOrder = (state: RootState): ReadonlyArray<string> => {
     const guyIds = state.guyOrdering;
 
     if (process.env.NODE_ENV === 'development') {

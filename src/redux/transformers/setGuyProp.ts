@@ -1,16 +1,23 @@
 import produce from 'immer';
-import { GuyProp, GuyPropKey, GuyPropVal, Transformer } from '../types';
+import { GuyProp, GuyPropVal, Transformer } from '../types';
 
 type SetGuyProp = <P extends GuyProp>(
     prop: P,
-    id: GuyPropKey<P>,
+    id: string,
     val: GuyPropVal<P>,
 ) => Transformer;
 
 const setGuyProp: SetGuyProp = (prop, id, val) => prevState => {
-    const newState = produce(prevState, draft => {
-        draft.guyProperties[prop][id] = val;
-    });
+    const newState = {
+        ...prevState,
+        guyProperties: {
+            ...prevState.guyProperties,
+            [prop]: {
+                ...prevState.guyProperties[prop],
+                [id]: val,
+            },
+        },
+    };
 
     return newState;
 };

@@ -17,24 +17,26 @@ export type ThunkAction<R = void> = Dispatch extends ThunkDispatch<
     ? RawThunkAction<R, S, E, A>
     : never;
 
-export type GuyId = string;
+type Dict<V> = {
+    [key: string]: V;
+};
 
 export interface RootState {
     guyProperties: {
         /** record of all the initiative rolls of the combatants. */
-        init: Record<GuyId, number | null>;
-        /** record of all the armor classes of the combatants. */
-        ac: Record<GuyId, number | null>;
-        /** record of the HP of the combatants. */
-        hp: Record<GuyId, number | null>;
-        /** record of the combatants' names. */
-        name: Record<GuyId, string>;
-        /** record of notes on each combatant. */
-        note: Record<GuyId, string>;
-        /** record of bias used for breaking ties in initiative. */
-        bias: Record<GuyId, number>;
+        init: Dict<number | null>;
+        /** Dict<ll the armor classes of the combatants. */
+        ac: Dict<number | null>;
+        /** Dict<he HP of the combatants. */
+        hp: Dict<number | null>;
+        /** Dict<he combatants' names. */
+        name: Dict<string>;
+        /** Dict<otes on each combatant. */
+        note: Dict<string>;
+        /** Dict<ias used for breaking ties in initiative. */
+        bias: Dict<number>;
     };
-    guyOrdering: ReadonlyArray<GuyId>;
+    guyOrdering: string[];
     settings: {
         autoSort: boolean;
     };
@@ -47,7 +49,7 @@ export type GuyProp = keyof RootState['guyProperties'];
 // e.g. GuyPropVal<'init'> is number | null since initative is a nullable number
 export type GuyPropVal<
     P extends GuyProp
-> = RootState['guyProperties'][P][GuyId];
+> = RootState['guyProperties'][P][string];
 // The type of key corresponding to a given prop
 
 /**

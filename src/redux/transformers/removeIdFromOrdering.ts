@@ -1,6 +1,6 @@
-import { GuyId, Transformer } from '~redux/types';
+import { Transformer } from '~redux/types';
 
-type RemoveIdFromOrdering = (id: GuyId) => Transformer;
+type RemoveIdFromOrdering = (id: string) => Transformer;
 
 const removeIdFromOrdering: RemoveIdFromOrdering = id => prevState => {
     const newState: typeof prevState = {
