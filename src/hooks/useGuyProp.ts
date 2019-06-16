@@ -11,11 +11,11 @@ type GuyPropSelectorTuple<P extends GuyProp> = [
     GuyPropSetter<P>
 ];
 
-interface GuyPropSelector<P extends GuyProp> {
+interface GuyPropHook<P extends GuyProp> {
     (guyId: string): GuyPropSelectorTuple<P>;
 }
 
-const makeUseGuyProp = <P extends GuyProp>(propName: P): GuyPropSelector<P> => {
+const makeGuyPropHook = <P extends GuyProp>(propName: P): GuyPropHook<P> => {
     const useGuyProp = (
         guyId: string,
     ): GuyPropSelectorTuple<typeof propName> => {
@@ -34,9 +34,8 @@ const makeUseGuyProp = <P extends GuyProp>(propName: P): GuyPropSelector<P> => {
     return useGuyProp;
 };
 
-export const useInit = makeUseGuyProp('init');
-export const useAc = makeUseGuyProp('ac');
-export const useHp = makeUseGuyProp('hp');
-export const useName = makeUseGuyProp('name');
-export const useNote = makeUseGuyProp('note');
-export const useBias = makeUseGuyProp('bias');
+export const useInit = makeGuyPropHook('init');
+export const useAc = makeGuyPropHook('ac');
+export const useHp = makeGuyPropHook('hp');
+export const useName = makeGuyPropHook('name');
+export const useNote = makeGuyPropHook('note');

@@ -19,7 +19,6 @@ export const reducer = (
         setGuyProp('hp', newGuyId, null),
         setGuyProp('name', newGuyId, ''),
         setGuyProp('note', newGuyId, ''),
-        setGuyProp('bias', newGuyId, 0),
         addIdToOrdering(newGuyId),
         sortGuyOrder(),
     )(prevState);

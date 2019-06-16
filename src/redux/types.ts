@@ -33,8 +33,6 @@ export interface RootState {
         name: Dict<string>;
         /** Dict<otes on each combatant. */
         note: Dict<string>;
-        /** Dict<ias used for breaking ties in initiative. */
-        bias: Dict<number>;
     };
     guyOrdering: string[];
     settings: {
@@ -62,7 +60,6 @@ export type GuyPropVal<
  *     hp: number | null;
  *     name: string;
  *     note: string;
- *     bias: number;
  * }
  * ```
  */
@@ -75,7 +72,6 @@ export type Transformer = (state: RootState) => RootState;
 export const initialState: RootState = {
     guyProperties: {
         ac: {},
-        bias: {},
         hp: {},
         init: {},
         name: {},

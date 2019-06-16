@@ -18,7 +18,6 @@ export const reducer = (
         unsetGuyProp('hp', guyId),
         unsetGuyProp('name', guyId),
         unsetGuyProp('note', guyId),
-        unsetGuyProp('bias', guyId),
         removeIdFromOrdering(guyId),
     )(prevState);
 };

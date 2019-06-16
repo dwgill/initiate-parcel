@@ -23,15 +23,7 @@ const sortGuyOrder: SortGuyOrder = (shouldSort = true) => prevState => {
         } else if (aGuyInit > bGuyInit) {
             return aFirst;
         } else {
-            const aGuyBias = getGuyProp('bias', aGuyId)(prevState) || 0;
-            const bGuyBias = getGuyProp('bias', bGuyId)(prevState) || 0;
-            if (aGuyBias < bGuyBias) {
-                return bFirst;
-            } else if (bGuyBias > bGuyBias) {
-                return aFirst;
-            } else {
-                return abEqual;
-            }
+            return abEqual;
         }
     });
 
