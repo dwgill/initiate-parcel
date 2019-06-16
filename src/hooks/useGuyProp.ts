@@ -2,7 +2,7 @@ import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import editGuy from '~actions/editGuy';
 import getGuyProp from '~redux/selectors/getGuyProp';
-import { GuyId, GuyProp, GuyPropVal } from '~redux/types';
+import { GuyProp, GuyPropVal } from '~redux/types';
 
 type GuyPropSetter<P extends GuyProp> = (newVal: GuyPropVal<P>) => void;
 
@@ -12,12 +12,12 @@ type GuyPropSelectorTuple<P extends GuyProp> = [
 ];
 
 interface GuyPropSelector<P extends GuyProp> {
-    (guyId: GuyId): GuyPropSelectorTuple<P>;
+    (guyId: string): GuyPropSelectorTuple<P>;
 }
 
 const makeUseGuyProp = <P extends GuyProp>(propName: P): GuyPropSelector<P> => {
     const useGuyProp = (
-        guyId: GuyId,
+        guyId: string,
     ): GuyPropSelectorTuple<typeof propName> => {
         const dispatch = useDispatch();
         const propVal: GuyPropVal<typeof propName> | undefined = useSelector(

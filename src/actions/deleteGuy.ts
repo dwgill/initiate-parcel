@@ -1,12 +1,10 @@
-import { GuyId } from '~redux/types';
-
 export const type = 'DELETE_GUY';
 export interface DeleteGuyAction {
     type: typeof type;
-    payload: GuyId;
+    payload: string;
 }
 
-const deleteGuy = (id: GuyId): DeleteGuyAction => ({
+const deleteGuy = (id: string): DeleteGuyAction => ({
     type,
     payload: id,
 });

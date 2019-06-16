@@ -1,4 +1,4 @@
-import { GuyId, ThunkAction } from '~redux/types';
+import { ThunkAction } from '~redux/types';
 import setAutoSort from './setAutoSort';
 import getAutoSort from '~redux/selectors/getAutoSort';
 
@@ -7,12 +7,12 @@ export const type = 'SET_GUY_INDEX';
 export interface SetGuyIndexAction {
     type: typeof type;
     payload: {
-        id: GuyId;
+        id: string;
         index: number;
     };
 }
 
-const setGuyIndex = (id: GuyId, index: number): ThunkAction => (
+const setGuyIndex = (id: string, index: number): ThunkAction => (
     dispatch,
     getState,
 ) => {

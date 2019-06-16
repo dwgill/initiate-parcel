@@ -1,4 +1,4 @@
-import { GuyId, ThunkAction, allGuyProps } from '~redux/types';
+import { ThunkAction, allGuyProps } from '~redux/types';
 import newGuy from './newGuy';
 import editGuy from './editGuy';
 import getGuyProp from '~redux/selectors/getGuyProp';
@@ -6,8 +6,8 @@ import newGuyId from '~logic/newGuyId';
 import { batch } from 'react-redux';
 
 const cloneGuy = (
-    origId: NonNullable<GuyId>,
-    newId: NonNullable<GuyId> = newGuyId(),
+    origId: NonNullable<string>,
+    newId: NonNullable<string> = newGuyId(),
 ): ThunkAction<void> => (dispatch, getState) => {
     const state = getState();
     batch(() => {

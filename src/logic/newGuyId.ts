@@ -1,4 +1,4 @@
-const newGuyId = (): string => {
+const newGuyId = (): NonNullable<string> => {
     const randomNum = Math.random()
         .toString(36)
         .substr(2);

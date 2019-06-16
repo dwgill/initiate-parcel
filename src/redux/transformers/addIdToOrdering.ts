@@ -1,6 +1,6 @@
-import { GuyId, Transformer } from '~redux/types';
+import { Transformer } from '~redux/types';
 
-type AddIdToOrdering = (id: GuyId) => Transformer;
+type AddIdToOrdering = (id: string) => Transformer;
 
 const addIdToOrdering: AddIdToOrdering = id => prevState => {
     return {

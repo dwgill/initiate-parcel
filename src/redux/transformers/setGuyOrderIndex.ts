@@ -1,8 +1,8 @@
-import { GuyId, Transformer } from '~redux/types';
+import { Transformer } from '~redux/types';
 import produce from 'immer';
 
 const setGuyOrderIndex = (
-    guyId: GuyId,
+    guyId: string,
     index: number,
 ): Transformer => prevState => {
     const newState = produce(prevState, draft => {
