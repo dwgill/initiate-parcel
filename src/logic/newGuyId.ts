@@ -1,5 +1,9 @@
-import { GuyId } from '~redux/types';
+const newGuyId = (): string => {
+    const randomNum = Math.random()
+        .toString(36)
+        .substr(2);
 
-const newGuyId = (): GuyId => new Date().toISOString();
+    return `guy_${randomNum}`;
+};
 
 export default newGuyId;

@@ -1,5 +1,4 @@
-@value constants: "~/constants.css";
-@value sans-font, serif-font, purple, miniSpace, white, gap, maxPhoneWidth from constants;
+@value miniSpace, gap, maxPhoneWidth from "~/constants.css";
 
 .panel {
     padding: gap;
@@ -11,8 +10,11 @@
     justify-content: flex-end;
     align-items: stretch;
     height: 3rem;
-    /* background-color: purple; */
     margin-bottom: miniSpace;
+}
+
+.barItem:not(:last-child) {
+    margin-right: miniSpace;
 }
 
 @media screen and (max-width: maxPhoneWidth) {

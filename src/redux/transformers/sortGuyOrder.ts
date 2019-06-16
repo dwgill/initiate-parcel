@@ -10,31 +10,30 @@ const sortGuyOrder: SortGuyOrder = (shouldSort = true) => prevState => {
         return prevState;
     }
 
-    const newOrdering = [...prevState.guyOrdering]
-        .sort((aGuyId, bGuyId) => {
-            let aGuyInit = getGuyProp('init', aGuyId)(prevState);
-            aGuyInit = existy(aGuyInit) ? aGuyInit : Number.MAX_SAFE_INTEGER;
+    const newOrdering = [...prevState.guyOrdering].sort((aGuyId, bGuyId) => {
+        let aGuyInit = getGuyProp('init', aGuyId)(prevState);
+        aGuyInit = existy(aGuyInit) ? aGuyInit : Number.MAX_SAFE_INTEGER;
 
-            let bGuyInit = getGuyProp('init', bGuyId)(prevState);
-            bGuyInit = existy(bGuyInit) ? bGuyInit : Number.MAX_SAFE_INTEGER;
+        let bGuyInit = getGuyProp('init', bGuyId)(prevState);
+        bGuyInit = existy(bGuyInit) ? bGuyInit : Number.MAX_SAFE_INTEGER;
 
-            if (aGuyInit < bGuyInit) {
-                return -1;
-            } else if (aGuyInit > bGuyInit) {
-                return +1;
+        const [aFirst, bFirst, abEqual] = [1, -1, 0];
+        if (aGuyInit < bGuyInit) {
+            return bFirst;
+        } else if (aGuyInit > bGuyInit) {
+            return aFirst;
+        } else {
+            const aGuyBias = getGuyProp('bias', aGuyId)(prevState) || 0;
+            const bGuyBias = getGuyProp('bias', bGuyId)(prevState) || 0;
+            if (aGuyBias < bGuyBias) {
+                return bFirst;
+            } else if (bGuyBias > bGuyBias) {
+                return aFirst;
             } else {
-                const aGuyBias = getGuyProp('bias', aGuyId)(prevState) || 0;
-                const bGuyBias = getGuyProp('bias', bGuyId)(prevState) || 0;
-                if (aGuyBias < bGuyBias) {
-                    return -1;
-                } else if (bGuyBias > bGuyBias) {
-                    return +1;
-                } else {
-                    return 0;
-                }
+                return abEqual;
             }
-        })
-        .reverse();
+        }
+    });
 
     if (arraysAreEqual(newOrdering, prevState.guyOrdering)) {
         return prevState;

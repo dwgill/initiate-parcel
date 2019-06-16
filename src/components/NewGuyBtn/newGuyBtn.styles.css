@@ -6,5 +6,4 @@
 
 .icon {
     composes: btnIcon from '~/commonClasses.css';
-    margin-left: 0.5rem;
 }

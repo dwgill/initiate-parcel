@@ -13,7 +13,7 @@ const SortGuysBtn = () => {
         dispatch(setAutoSort(!autoSortOn));
     }, [autoSortOn, dispatch]);
     return (
-        <button className={styles.button} onClick={handleClick}>
+        <button className={styles.btn} onClick={handleClick}>
             Sort Guys
             <img src={autoSortOn ? check : question} className={styles.icon} />
         </button>
