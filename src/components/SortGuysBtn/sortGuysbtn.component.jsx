@@ -10,10 +10,13 @@ const SortGuysBtn = () => {
     const dispatch = useDispatch();
     const autoSortOn = useSelector(getAutoSort);
     const handleClick = useCallback(() => {
-        dispatch(setAutoSort(!autoSortOn));
-    }, [autoSortOn, dispatch]);
+        dispatch(setAutoSort(true));
+    }, [dispatch]);
     return (
-        <button className={styles.btn} onClick={handleClick}>
+        <button
+            className={styles.btn}
+            onClick={autoSortOn ? null : handleClick}
+        >
             Sort Guys
             <img src={autoSortOn ? check : question} className={styles.icon} />
         </button>
