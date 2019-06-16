@@ -16,14 +16,12 @@ interface GuyPropHook<P extends GuyProp> {
 }
 
 const makeGuyPropHook = <P extends GuyProp>(propName: P): GuyPropHook<P> => {
-    const useGuyProp = (
-        guyId: string,
-    ): GuyPropSelectorTuple<typeof propName> => {
+    const useGuyProp = (guyId: string): GuyPropSelectorTuple<P> => {
         const dispatch = useDispatch();
-        const propVal: GuyPropVal<typeof propName> | undefined = useSelector(
+        const propVal: GuyPropVal<P> | undefined = useSelector(
             getGuyProp(propName, guyId),
         );
-        const setProp: GuyPropSetter<typeof propName> = useCallback(
+        const setProp: GuyPropSetter<P> = useCallback(
             newVal => dispatch(editGuy(guyId, propName, newVal)),
             [propName, guyId, dispatch],
         );
