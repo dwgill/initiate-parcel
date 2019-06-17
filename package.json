@@ -46,7 +46,8 @@
         "pretty-quick": "^1.11.0",
         "redux-devtools-extension": "^2.13.8",
         "rimraf": "^2.6.3",
-        "typescript": "^3.5.1"
+        "typescript": "^3.5.1",
+        "utility-types": "^3.7.0"
     },
     "husky": {
         "hooks": {

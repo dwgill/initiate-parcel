@@ -1,0 +1,19 @@
+@value sans-font from "~/constants.css";
+
+.container {
+    display: flex;
+    flex-flow: column nowrap;
+    min-width: 100%;
+}
+
+.input {
+    font-family: sans-font;
+    min-width: 100%;
+    flex: 1;
+}
+
+.label {
+    min-width: 100%;
+    font-family: sans-font;
+    font-size: 0.9rem;
+}

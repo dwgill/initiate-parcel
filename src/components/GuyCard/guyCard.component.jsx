@@ -3,6 +3,7 @@ import { Draggable } from 'react-beautiful-dnd';
 import { Flipped } from 'react-flip-toolkit';
 import NameInput from '~components/NameInput/nameInput.component';
 import styles from './guyCard.styles.css';
+import NumPropInput from '~components/NumPropInput/numPropInput.component';
 
 const GuyCard = ({ guyId, index }) => {
     return (
@@ -15,7 +16,33 @@ const GuyCard = ({ guyId, index }) => {
                         {...provided.draggableProps}
                         {...provided.dragHandleProps}
                     >
-                        <NameInput guyId={guyId} />
+                        <span className={styles.name}>
+                            <NameInput guyId={guyId} />
+                        </span>
+                        <span className={styles.initiative}>
+                            <NumPropInput
+                                title="Initiative"
+                                prop={'init'}
+                                id={guyId}
+                            />
+                        </span>
+                        <span className={styles.health}>
+                            <NumPropInput
+                                title="Health"
+                                prop={'hp'}
+                                id={guyId}
+                            />
+                        </span>
+
+                        <span className={styles.armorClass}>
+                            <NumPropInput
+                                title="Armor Class"
+                                prop={'ac'}
+                                id={guyId}
+                            />
+                        </span>
+                        <span className={styles.notes}>Notes</span>
+                        <span className={styles.buttons}>button</span>
                     </div>
                 </Flipped>
             )}

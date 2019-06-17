@@ -3,6 +3,7 @@ import { Action } from '~actions/types';
 import { InitiateStore } from './store';
 import { ThunkDispatch, ThunkAction as RawThunkAction } from 'redux-thunk';
 import { TypedUseSelectorHook } from 'react-redux';
+import { PickByValue } from 'utility-types';
 
 export { Action, ActionType as ActionTypes } from '~actions/types';
 
@@ -42,6 +43,12 @@ export interface RootState {
 
 // This type represents the official "name" of a property of a guy
 export type GuyProp = keyof RootState['guyProperties'];
+
+type GuyPropWithVal<V> = keyof PickByValue<RootState['guyProperties'], Dict<V>>;
+export type NumGuyProp = GuyPropWithVal<number | null>;
+export type StrGuyProp = GuyPropWithVal<string>;
+
+// type foo = helper<number | null>
 // This type represents the type of a value corresponding to a given guy prop.
 // e.g. GuyPropVal<'note'> is 'string' because a note must be a string
 // e.g. GuyPropVal<'init'> is number | null since initative is a nullable number

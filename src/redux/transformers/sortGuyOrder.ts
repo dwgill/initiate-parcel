@@ -17,7 +17,7 @@ const sortGuyOrder: SortGuyOrder = (shouldSort = true) => prevState => {
         let bGuyInit = getGuyProp('init', bGuyId)(prevState);
         bGuyInit = existy(bGuyInit) ? bGuyInit : Number.MAX_SAFE_INTEGER;
 
-        const [aFirst, bFirst, abEqual] = [1, -1, 0];
+        const [aFirst, bFirst, abEqual] = [-1, 1, 0];
         if (aGuyInit < bGuyInit) {
             return bFirst;
         } else if (aGuyInit > bGuyInit) {

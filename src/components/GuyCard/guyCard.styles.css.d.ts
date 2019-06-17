@@ -7,6 +7,11 @@ declare const styles: {
     readonly maxPhoneWidth: string;
     readonly miniSpace: string;
     readonly card: string;
-    readonly cardTitle: string;
+    readonly name: string;
+    readonly notes: string;
+    readonly initiative: string;
+    readonly health: string;
+    readonly armorClass: string;
+    readonly buttons: string;
 };
 export = styles;

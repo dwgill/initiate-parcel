@@ -2,7 +2,7 @@ import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import editGuy from '~actions/editGuy';
 import getGuyProp from '~redux/selectors/getGuyProp';
-import { GuyProp, GuyPropVal } from '~redux/types';
+import { GuyProp, GuyPropVal, Guy } from '~redux/types';
 
 type GuyPropSetter<P extends GuyProp> = (newVal: GuyPropVal<P>) => void;
 
@@ -30,6 +30,13 @@ const makeGuyPropHook = <P extends GuyProp>(propName: P): GuyPropHook<P> => {
     };
 
     return useGuyProp;
+};
+
+export const useGuyProp = <P extends GuyProp>(
+    prop: P,
+    id: string,
+): GuyPropSelectorTuple<P> => {
+    return makeGuyPropHook(prop)(id);
 };
 
 export const useInit = makeGuyPropHook('init');

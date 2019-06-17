@@ -19,6 +19,7 @@ const NameInput = ({ guyId }) => {
             onChange={handleChangeName}
             className={styles.nameInput}
             ref={inputRef}
+            placeholder="Unnamed"
         />
     );
 };
