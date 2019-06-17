@@ -48,7 +48,6 @@ type GuyPropWithVal<V> = keyof PickByValue<RootState['guyProperties'], Dict<V>>;
 export type NumGuyProp = GuyPropWithVal<number | null>;
 export type StrGuyProp = GuyPropWithVal<string>;
 
-// type foo = helper<number | null>
 // This type represents the type of a value corresponding to a given guy prop.
 // e.g. GuyPropVal<'note'> is 'string' because a note must be a string
 // e.g. GuyPropVal<'init'> is number | null since initative is a nullable number

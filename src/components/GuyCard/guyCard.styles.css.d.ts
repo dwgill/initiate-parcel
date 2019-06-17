@@ -7,6 +7,7 @@ declare const styles: {
     readonly maxPhoneWidth: string;
     readonly miniSpace: string;
     readonly card: string;
+    readonly cardElement: string;
     readonly name: string;
     readonly notes: string;
     readonly initiative: string;

@@ -20,26 +20,38 @@
     margin-top: miniSpace;
 }
 
+.cardElement {
+    box-sizing: border-box;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
 .name {
-    /* background-color: red; */
+    composes: cardElement;
+    flex: 100 0;
 }
 
 .notes {
-    /* background-color: grey; */
+    composes: cardElement;
+    flex: 2;
 }
 
 .initiative {
-    /* background-color: purple; */
+    composes: cardElement;
+    flex: 2;
 }
 
 .health {
-    /* background-color: green; */
+    composes: cardElement;
+    flex: 2;
 }
 
 .armorClass {
-    /* background-color: blue; */
+    composes: cardElement;
+    flex: 2;
 }
 
 .buttons {
-    /* background-color: orange; */
+    composes: cardElement;
+    flex: 2;
 }

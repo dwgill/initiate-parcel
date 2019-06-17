@@ -21,7 +21,7 @@ const evaluateDynamicNumber = (
              */
             return [
                 parseIntVal + prevNumVal,
-                !(prevNumVal === 0 && prevNumVal < 0),
+                !(prevNumVal === 0 && parseIntVal < 0),
             ];
         } else {
             return [parseIntVal, false];

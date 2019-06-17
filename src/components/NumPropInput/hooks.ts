@@ -42,6 +42,12 @@ export const useInput = (prop: NumGuyProp, id: string) => {
     }, [setFocus, setReduxPropVal, reduxPropVal, inputVal]);
 
     useEffect(() => {
+        if (isFocused && existy(ref.current)) {
+            ref.current.select();
+        }
+    }, [isFocused]);
+
+    useEffect(() => {
         if (!isFocused) {
             const reduxPropValStr = asStr(reduxPropVal);
             if (inputVal !== reduxPropValStr) {

@@ -4,16 +4,22 @@
     display: flex;
     flex-flow: column nowrap;
     min-width: 100%;
+    /* width: 5rem; */
+    /* box-sizing: border-box;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem; */
 }
 
 .input {
     font-family: sans-font;
     min-width: 100%;
+    max-width: 100%;
     flex: 1;
 }
 
 .label {
     min-width: 100%;
+    max-width: 100%;
     font-family: sans-font;
     font-size: 0.9rem;
 }
