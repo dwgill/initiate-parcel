@@ -16,12 +16,14 @@ const NumPropInput: React.FC<NumPropInputProps> = ({ prop, id, title }) => {
         value: [inputVal, setInputVal],
         onKeyDown,
         inputRef,
+        flashing,
     } = useInput(prop, id);
 
     return (
         <div className={styles.container}>
             <label className={styles.label}>{title}</label>
             <input
+                style={{ backgroundColor: flashing ? 'green' : 'red' }}
                 className={styles.input}
                 value={inputVal}
                 onChange={e => setInputVal(e.currentTarget.value)}

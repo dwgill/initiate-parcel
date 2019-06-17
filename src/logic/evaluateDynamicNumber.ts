@@ -1,59 +1,48 @@
 import droll from 'droll';
 
-const constantRE = /^[0-9]*\.?[0-9]+$/;
-const isConstantNumber = (str: string) => constantRE.test(str);
-const isDiceRoll = (str: string) => droll.validate(str);
-
-/**
- * @param prevValue
- * @param dynamicNum
- * @return The result, and whether it was dynamic
- */
-function computeDynamicNumber(
-    prevValue: number | null,
-    dynamicNum: string,
-): [number, boolean] {
-    prevValue = prevValue || 0;
-    dynamicNum = (dynamicNum || '').replace(/\s+/g, '');
-
-    if (!dynamicNum) {
-        return [prevValue, false];
+const evaluateDynamicNumber = (
+    value: string,
+    previousValue: number | null = null,
+): [number | null, boolean] => {
+    if (value === '') {
+        return [previousValue, false];
     }
 
-    if (isConstantNumber(dynamicNum)) {
-        return [Number(dynamicNum), false];
-    }
+    value = value.replace(/\s/g, '');
 
-    if (dynamicNum[0] === '+') {
-        const dynamicWithoutPlus = dynamicNum.substring(1).trim();
-        if (isConstantNumber(dynamicWithoutPlus)) {
-            const result = prevValue + Number(dynamicWithoutPlus);
-            return [result, true];
-        }
-
-        if (isDiceRoll(dynamicWithoutPlus)) {
-            const result = prevValue + droll.roll(dynamicWithoutPlus).total;
-            return [result, true];
-        }
-    } else if (dynamicNum[0] === '-') {
-        const dynamicWithoutMinus = dynamicNum.substring(1).trim();
-        if (isConstantNumber(dynamicWithoutMinus)) {
-            const result = prevValue - Number(dynamicWithoutMinus);
-            return [result, true];
-        }
-
-        if (isDiceRoll(dynamicWithoutMinus)) {
-            const result = prevValue - droll.roll(dynamicWithoutMinus).total;
-            return [result, true];
+    const parseIntVal = Math.round(Number(value));
+    if (!isNaN(parseIntVal)) {
+        if (value.startsWith('+') || parseIntVal < 0) {
+            const prevNumVal = previousValue || 0;
+            /**
+             * If the prev val was 0 and the new val is negative,
+             * it's not going to "feel" dynamic to the user. It feels like they just
+             * set the value to a negative number.
+             */
+            return [
+                parseIntVal + prevNumVal,
+                !(prevNumVal === 0 && prevNumVal < 0),
+            ];
+        } else {
+            return [parseIntVal, false];
         }
     }
 
-    if (isDiceRoll(dynamicNum)) {
-        const result = droll.roll(dynamicNum).total;
-        return [result, true];
+    let rollResult: droll.DrollResult | false;
+    if (
+        ['+', '-'].includes(value[0]) &&
+        (rollResult = droll.roll(value.substr(1))) !== false
+    ) {
+        if ('+' === value[0]) {
+            return [(previousValue || 0) + rollResult.total, true];
+        } else {
+            return [(previousValue || 0) - rollResult.total, true];
+        }
+    } else if ((rollResult = droll.roll(value)) !== false) {
+        return [rollResult.total, true];
     }
 
-    throw new Error('Not valid dynamic string');
-}
+    return [previousValue, false];
+};
 
-export default computeDynamicNumber;
+export default evaluateDynamicNumber;
