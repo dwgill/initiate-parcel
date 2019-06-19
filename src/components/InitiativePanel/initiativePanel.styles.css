@@ -1,25 +1,15 @@
 @value miniSpace, gap, maxPhoneWidth from "~/constants.css";
 
 .panel {
-    padding: gap;
 }
 
 .bar {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: flex-end;
-    align-items: stretch;
-    height: 3rem;
-    margin-bottom: miniSpace;
 }
 
 .barItem:not(:last-child) {
-    margin-right: miniSpace;
 }
 
 @media screen and (max-width: maxPhoneWidth) {
     .panel {
-        padding: 0;
-        padding-top: gap;
     }
 }

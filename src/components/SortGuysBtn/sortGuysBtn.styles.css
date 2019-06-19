@@ -1,10 +1,7 @@
 @value white from "~/constants.css";
 
 .btn {
-    composes: btn from '~/commonClasses.css';
 }
 
 .icon {
-    composes: btnIcon from '~/commonClasses.css';
-    margin-left: 0.5rem;
 }

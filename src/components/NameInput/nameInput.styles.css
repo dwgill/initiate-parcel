@@ -2,13 +2,4 @@
 @value sans-font, serif-font, purple, gap, maxPhoneWidth, miniSpace from constants;
 
 .nameInput {
-    background-color: transparent;
-    padding: 0;
-    margin: 0;
-    border: 0;
-    font-size: 2rem;
-    font-family: sans-font;
-    font-weight: bold;
-    min-width: 5rem;
-    /* width: 100%; */
 }

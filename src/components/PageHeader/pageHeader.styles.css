@@ -2,45 +2,24 @@
 @value sans-font, serif-font, purple, white, gap, maxPhoneWidth from constants;
 
 .header {
-    height: 10rem;
-    background-color: purple;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: flex-start;
 }
 
 .titles {
-    margin-left: gap;
-    margin-right: gap;
 }
 
 .title {
-    color: white;
-    font-family: sans-font;
-    margin: 0;
-    padding: 0;
-    font-size: 4rem;
 }
 
 .subtitle {
-    color: white;
-    font-family: sans-font;
-    margin: 0;
-    padding: 0;
-    font-size: 1.5rem;
 }
 
 @media screen and (max-width: maxPhoneWidth) {
     .header {
-        height: 5rem;
     }
 
     .title {
-        font-size: 2rem;
     }
 
     .subtitle {
-        font-size: 1rem;
     }
 }
