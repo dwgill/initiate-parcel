@@ -6,13 +6,13 @@ declare const styles: {
     readonly gap: string;
     readonly maxPhoneWidth: string;
     readonly miniSpace: string;
+    readonly cardShadowColor: string;
     readonly card: string;
-    readonly cardElement: string;
     readonly name: string;
-    readonly notes: string;
     readonly initiative: string;
     readonly health: string;
     readonly armorClass: string;
+    readonly notes: string;
     readonly buttons: string;
 };
 export = styles;

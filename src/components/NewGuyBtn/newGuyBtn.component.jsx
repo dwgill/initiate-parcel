@@ -1,4 +1,5 @@
-import plus from '@fortawesome/fontawesome-free/svgs/solid/plus.svg';
+import { faPlus } from '@fortawesome/free-solid-svg-icons/faPlus';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import newGuy from '~actions/newGuy';
@@ -9,7 +10,7 @@ const NewGuyBtn = () => {
     const handleClick = useCallback(() => dispatch(newGuy()), [dispatch]);
     return (
         <button className={styles.btn} onClick={handleClick}>
-            <img src={plus} className={styles.icon} />
+            <FontAwesomeIcon icon={faPlus} size="2x" color={styles.white} />
         </button>
     );
 };

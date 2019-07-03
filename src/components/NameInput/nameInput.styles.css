@@ -2,4 +2,18 @@
 @value sans-font, serif-font, purple, gap, maxPhoneWidth, miniSpace from constants;
 
 .nameInput {
+    font-size: 2rem;
+    /* width: 100%; */
+    box-sizing: border-box;
+    background-color: transparent;
+    border-width: 0;
+    border-color: transparent;
+    font-family: sans-font;
+    font-weight: 600;
+}
+
+.nameInputContainer {
+    font-size: 2rem;
+    font-family: sans-font;
+    font-weight: 600;
 }

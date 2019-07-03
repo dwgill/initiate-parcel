@@ -7,5 +7,6 @@ declare const styles: {
     readonly maxPhoneWidth: string;
     readonly miniSpace: string;
     readonly nameInput: string;
+    readonly nameInputContainer: string;
 };
 export = styles;

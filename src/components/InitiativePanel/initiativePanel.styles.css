@@ -1,15 +1,37 @@
 @value miniSpace, gap, maxPhoneWidth from "~/constants.css";
 
+.container {
+    composes: pure-g from global;
+    padding-top: 1rem;
+}
+
+.spacing {
+    composes: pure-u-xl-3-12 from global;
+    composes: pure-u-lg-5-24 from global;
+    composes: pure-u-md-3-24 from global;
+    composes: pure-u-sm-1-24 from global;
+    composes: pure-u-1 from global;
+}
+
 .panel {
+    composes: pure-u-xl-1-2 from global;
+    composes: pure-u-lg-14-24 from global;
+    composes: pure-u-md-18-24 from global;
+    composes: pure-u-sm-22-24 from global;
+    composes: pure-u-1 from global;
 }
 
 .bar {
+    composes: pure-g from global;
+    justify-content: right;
 }
 
-.barItem:not(:last-child) {
+.barElement {
+    composes: pure-u-xl-2-24 from global;
+    composes: pure-u-md-3-24 from global;
+    composes: pure-u-4-12 from global;
 }
 
-@media screen and (max-width: maxPhoneWidth) {
-    .panel {
-    }
+.bar > .barElement:not(:last-of-type) {
+    padding-right: 1rem;
 }

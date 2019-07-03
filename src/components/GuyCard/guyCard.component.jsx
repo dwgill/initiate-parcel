@@ -20,29 +20,29 @@ const GuyCard = ({ guyId, index }) => {
                             <NameInput guyId={guyId} />
                         </span>
                         <span className={styles.initiative}>
-                            <NumPropInput
+                            {/* <NumPropInput
                                 title="Initiative"
                                 prop={'init'}
                                 id={guyId}
-                            />
+                            /> */}
                         </span>
                         <span className={styles.health}>
-                            <NumPropInput
+                            {/* <NumPropInput
                                 title="Health"
                                 prop={'hp'}
                                 id={guyId}
-                            />
+                            /> */}
                         </span>
 
                         <span className={styles.armorClass}>
-                            <NumPropInput
+                            {/* <NumPropInput
                                 title="Armor Class"
                                 prop={'ac'}
                                 id={guyId}
-                            />
+                            /> */}
                         </span>
-                        <span className={styles.notes}>Notes</span>
-                        <span className={styles.buttons}>button</span>
+                        <span className={styles.notes} />
+                        <span className={styles.buttons} />
                     </div>
                 </Flipped>
             )}

@@ -1,6 +1,12 @@
-@value white from "~/constants.css";
+@value white, purple from "~/constants.css";
 
 .btn {
+    composes: pure-button from global;
+    composes: pure-button-primary from global;
+    border-radius: 0.5em;
+    color: white;
+    background-color: purple;
+    width: 100%;
 }
 
 .icon {

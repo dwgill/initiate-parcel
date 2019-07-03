@@ -1,7 +1,8 @@
+import { faSortNumericDownAlt } from '@fortawesome/free-solid-svg-icons/faSortNumericDownAlt';
+import { faRandom } from '@fortawesome/free-solid-svg-icons/faRandom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useCallback } from 'react';
 import styles from './sortGuysBtn.styles.css';
-import check from '@fortawesome/fontawesome-free/svgs/solid/check.svg';
-import question from '@fortawesome/fontawesome-free/svgs/solid/question.svg';
 import { useSelector, useDispatch } from 'react-redux';
 import getAutoSort from '~redux/selectors/getAutoSort';
 import setAutoSort from '~actions/setAutoSort';
@@ -10,15 +11,15 @@ const SortGuysBtn = () => {
     const dispatch = useDispatch();
     const autoSortOn = useSelector(getAutoSort);
     const handleClick = useCallback(() => {
-        dispatch(setAutoSort(true));
-    }, [dispatch]);
+        dispatch(setAutoSort(!autoSortOn));
+    }, [dispatch, autoSortOn]);
     return (
-        <button
-            className={styles.btn}
-            onClick={autoSortOn ? null : handleClick}
-        >
-            Sort Guys
-            <img src={autoSortOn ? check : question} className={styles.icon} />
+        <button className={styles.btn} onClick={handleClick}>
+            <FontAwesomeIcon
+                icon={autoSortOn ? faSortNumericDownAlt : faRandom}
+                size="2x"
+                color={styles.white}
+            />
         </button>
     );
 };

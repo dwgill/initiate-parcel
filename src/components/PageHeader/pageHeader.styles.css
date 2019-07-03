@@ -2,15 +2,38 @@
 @value sans-font, serif-font, purple, white, gap, maxPhoneWidth from constants;
 
 .header {
+    composes: pure-g from global;
+    background-color: purple;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    flex: 0;
+}
+
+.spacing {
+    composes: pure-u-1-24 from global;
+    composes: pure-u-md-1-5 from global;
 }
 
 .titles {
+    composes: pure-u-23-24 from global;
+    composes: pure-u-md-4-5 from global;
 }
 
 .title {
+    font-family: sans-font;
+    color: white;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    font-size: 3em;
 }
 
 .subtitle {
+    font-family: sans-font;
+    color: white;
+    margin: 0;
+    padding: 0;
+    font-size: 1.25em;
 }
 
 @media screen and (max-width: maxPhoneWidth) {

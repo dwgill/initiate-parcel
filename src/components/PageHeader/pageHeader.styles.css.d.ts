@@ -7,6 +7,7 @@ declare const styles: {
     readonly gap: string;
     readonly maxPhoneWidth: string;
     readonly header: string;
+    readonly spacing: string;
     readonly titles: string;
     readonly title: string;
     readonly subtitle: string;

@@ -6,16 +6,20 @@ import NewGuyBtn from '~components/NewGuyBtn/newGuyBtn.component';
 
 const InitiativePanel = () => {
     return (
-        <section className={styles.panel}>
-            <div className={styles.bar}>
-                <span className={styles.barItem}>
-                    <NewGuyBtn />
-                </span>
-                <span className={styles.barItem}>
-                    <SortGuysBtn />
-                </span>
+        <section className={styles.container}>
+            <div className={styles.spacing} />
+            <div className={styles.panel}>
+                <div className={styles.bar}>
+                    <span className={styles.barElement}>
+                        <NewGuyBtn />
+                    </span>
+                    <span className={styles.barElement}>
+                        <SortGuysBtn />
+                    </span>
+                </div>
+                <GuyCardList />
             </div>
-            <GuyCardList />
+            <div className={styles.spacing} />
         </section>
     );
 };
