@@ -4,6 +4,7 @@ import flowTransformers from '~redux/transformers/composeTransformers';
 import setGuyProp from '~redux/transformers/setGuyProp';
 import addIdToOrdering from '~redux/transformers/addIdToOrdering';
 import sortGuyOrder from '~redux/transformers/sortGuyOrder';
+import getAutoSort from '~redux/selectors/getAutoSort';
 
 export { type } from '~actions/newGuy';
 
@@ -20,6 +21,6 @@ export const reducer = (
         setGuyProp('name', newGuyId, ''),
         setGuyProp('note', newGuyId, ''),
         addIdToOrdering(newGuyId),
-        sortGuyOrder(),
+        sortGuyOrder(getAutoSort(prevState)),
     )(prevState);
 };

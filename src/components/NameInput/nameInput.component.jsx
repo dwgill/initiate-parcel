@@ -13,7 +13,6 @@ const NameInput = memo(({ guyId }) => {
         [setName]
     );
     const inputRef = useAutoFocusRef();
-    const key = useResetKey([0, 1]);
 
     return (
         <AutosizeInput
@@ -24,7 +23,6 @@ const NameInput = memo(({ guyId }) => {
             inputClassName={styles.nameInput}
             ref={inputRef}
             placeholder="Unnamed"
-            key={key}
         />
     );
 });
