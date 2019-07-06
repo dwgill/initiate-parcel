@@ -2,11 +2,19 @@
 @value offWhite from constants;
 
 .card {
-    composes: pure-g from global;
     composes: boldBorder from '~/commonClasses.css';
     background-color: #ffffff;
     margin-top: 1rem;
-    padding: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 0.5rem;
+    position: relative;
+}
+
+.cardInterior {
+    composes: pure-g from global;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .name {
@@ -41,4 +49,10 @@
 }
 
 .buttons {
+}
+
+.close {
+    position: absolute;
+    top: 0.2rem;
+    right: 0.4rem;
 }

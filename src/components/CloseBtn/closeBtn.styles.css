@@ -1,0 +1,30 @@
+@value constants: "~/constants.css";
+@value offBlack, lightPurple, darkPurple from constants;
+
+.btn {
+    background-color: transparent;
+    border-width: 0;
+    border-color: transparent;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon {
+    color: offBlack;
+}
+
+.btn:focus .icon,
+.icon:focus {
+    color: darkPurple;
+}
+
+.btn:active .icon {
+    color: lightPurple;
+}

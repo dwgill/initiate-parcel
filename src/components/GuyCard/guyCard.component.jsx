@@ -7,7 +7,7 @@ import NumPropInput from '~components/NumPropInput/numPropInput.component';
 import { faHistory } from '@fortawesome/free-solid-svg-icons/faHistory';
 import { faHeart } from '@fortawesome/free-solid-svg-icons/faHeart';
 import { faShieldAlt } from '@fortawesome/free-solid-svg-icons/faShieldAlt';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import CloseBtn from '~components/CloseBtn/closeBtn.component';
 
 const GuyCard = ({ guyId, index }) => {
     return (
@@ -20,33 +20,38 @@ const GuyCard = ({ guyId, index }) => {
                         {...provided.draggableProps}
                         {...provided.dragHandleProps}
                     >
-                        <span className={styles.name}>
-                            <NameInput guyId={guyId} />
+                        <span className={styles.close}>
+                            <CloseBtn id={guyId} />
                         </span>
-                        <span className={styles.initiative}>
-                            <NumPropInput
-                                icon={faHistory}
-                                prop={'init'}
-                                id={guyId}
-                            />
-                        </span>
-                        <span className={styles.health}>
-                            <NumPropInput
-                                icon={faHeart}
-                                prop={'hp'}
-                                id={guyId}
-                            />
-                        </span>
+                        <div className={styles.cardInterior}>
+                            <span className={styles.name}>
+                                <NameInput guyId={guyId} />
+                            </span>
+                            <span className={styles.initiative}>
+                                <NumPropInput
+                                    icon={faHistory}
+                                    prop={'init'}
+                                    id={guyId}
+                                />
+                            </span>
+                            <span className={styles.health}>
+                                <NumPropInput
+                                    icon={faHeart}
+                                    prop={'hp'}
+                                    id={guyId}
+                                />
+                            </span>
 
-                        <span className={styles.armorClass}>
-                            <NumPropInput
-                                icon={faShieldAlt}
-                                prop={'ac'}
-                                id={guyId}
-                            />
-                        </span>
-                        <span className={styles.notes} />
-                        <span className={styles.buttons} />
+                            <span className={styles.armorClass}>
+                                <NumPropInput
+                                    icon={faShieldAlt}
+                                    prop={'ac'}
+                                    id={guyId}
+                                />
+                            </span>
+                            <span className={styles.notes} />
+                            <span className={styles.buttons} />
+                        </div>
                     </div>
                 </Flipped>
             )}
