@@ -32,6 +32,6 @@
     composes: pure-u-4-12 from global;
 }
 
-.bar > .barElement:not(:last-of-type) {
+.barElement:not(:last-of-type) {
     padding-right: 1rem;
 }

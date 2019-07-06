@@ -2,7 +2,6 @@ declare const styles: {
     readonly constants: string;
     readonly offWhite: string;
     readonly card: string;
-    readonly icon: string;
     readonly name: string;
     readonly numberField: string;
     readonly initiative: string;

@@ -1,41 +1,5 @@
-@value constants: "~/constants.css";
-@value lightPurple, darkPurple, offWhite, sansFont from constants;
-
-.btn {
-    background-color: lightPurple;
-    border-color: transparent;
-    color: offWhite;
-    font-family: sansFont;
-    font-weight: bold;
-    border-width: 1px;
-    cursor: pointer;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: calc(0.375em - 1px);
-    padding-left: 0.75em;
-    padding-right: 0.75em;
-    padding-top: calc(0.375em - 1px);
-    text-align: center;
-    white-space: nowrap;
-    border-radius: 4px;
-    box-shadow: none;
-    height: 2.5rem;
-}
-
-.btn:active {
-    background-color: darkPurple;
-}
-
-.btnIcon {
-    height: 1.2rem;
-    width: 1.2rem;
-    fill: offWhite;
-    filter: invert(100%);
-}
-
 .boldBorder {
+    box-sizing: border-box;
     border-width: 0.2rem;
     border-style: solid;
     border-radius: 0.25rem;

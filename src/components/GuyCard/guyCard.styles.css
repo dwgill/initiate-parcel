@@ -6,11 +6,7 @@
     composes: boldBorder from '~/commonClasses.css';
     background-color: #ffffff;
     margin-top: 1rem;
-
     padding: 1rem;
-}
-
-.icon {
 }
 
 .name {
@@ -42,8 +38,6 @@
     composes: pure-u-1 from global;
     composes: pure-u-sm-1-2 from global;
     composes: pure-u-md-1 from global;
-    min-height: 2.5rem;
-    background-color: lightsteelblue;
 }
 
 .buttons {
