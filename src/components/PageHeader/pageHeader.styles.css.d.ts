@@ -1,11 +1,8 @@
 declare const styles: {
     readonly constants: string;
-    readonly 'sans-font': string;
-    readonly 'serif-font': string;
-    readonly purple: string;
-    readonly white: string;
-    readonly gap: string;
-    readonly maxPhoneWidth: string;
+    readonly lightPurple: string;
+    readonly offWhite: string;
+    readonly sansFont: string;
     readonly header: string;
     readonly spacing: string;
     readonly titles: string;

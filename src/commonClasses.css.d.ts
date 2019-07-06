@@ -1,8 +1,11 @@
 declare const styles: {
-    readonly 'sans-font': string;
+    readonly constants: string;
+    readonly lightPurple: string;
     readonly darkPurple: string;
-    readonly purple: string;
+    readonly offWhite: string;
+    readonly sansFont: string;
     readonly btn: string;
     readonly btnIcon: string;
+    readonly boldBorder: string;
 };
 export = styles;

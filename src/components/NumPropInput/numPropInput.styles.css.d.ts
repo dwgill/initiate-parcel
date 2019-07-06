@@ -1,7 +1,8 @@
 declare const styles: {
-    readonly 'sans-font': string;
+    readonly sansFont: string;
+    readonly darkPurple: string;
     readonly container: string;
+    readonly flashingContainer: string;
     readonly input: string;
-    readonly label: string;
 };
 export = styles;

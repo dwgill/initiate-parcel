@@ -1,5 +1,5 @@
 @value constants: "~/constants.css";
-@value sans-font, serif-font, purple, gap, maxPhoneWidth, miniSpace from constants;
+@value sansFont from constants;
 
 .nameInput {
     font-size: 2rem;
@@ -8,12 +8,12 @@
     background-color: transparent;
     border-width: 0;
     border-color: transparent;
-    font-family: sans-font;
+    font-family: sansFont;
     font-weight: 600;
 }
 
 .nameInputContainer {
     font-size: 2rem;
-    font-family: sans-font;
+    font-family: sansFont;
     font-weight: 600;
 }

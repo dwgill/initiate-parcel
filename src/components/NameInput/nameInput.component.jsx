@@ -1,9 +1,7 @@
-import React, { useCallback, memo } from 'react';
+import React, { memo, useCallback } from 'react';
+import AutosizeInput from 'react-input-autosize';
 import { useName } from '~hooks/useGuyProp';
 import styles from './nameInput.styles.css';
-import useAutoFocusRef from '~hooks/useAutoFocusRef';
-import AutosizeInput from 'react-input-autosize';
-import useResetKey from '~hooks/useResetKey';
 
 const NameInput = memo(({ guyId }) => {
     const [name, setName] = useName(guyId);
@@ -12,7 +10,6 @@ const NameInput = memo(({ guyId }) => {
         e => setName(e.target.value),
         [setName]
     );
-    const inputRef = useAutoFocusRef();
 
     return (
         <AutosizeInput
@@ -21,7 +18,6 @@ const NameInput = memo(({ guyId }) => {
             onChange={handleChangeName}
             className={styles.nameInputContainer}
             inputClassName={styles.nameInput}
-            ref={inputRef}
             placeholder="Unnamed"
         />
     );

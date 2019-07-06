@@ -2,14 +2,17 @@ import * as React from 'react';
 import { NumGuyProp } from '~redux/types';
 import { useInput } from './hooks';
 import * as styles from './numPropInput.styles.css';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 type NumPropInputProps = {
     prop: NumGuyProp;
     id: string;
     title: string;
+    icon: IconDefinition;
 };
 
-const NumPropInput: React.FC<NumPropInputProps> = ({ prop, id, title }) => {
+const NumPropInput: React.FC<NumPropInputProps> = ({ prop, id, icon }) => {
     const {
         onBlur,
         onFocus,
@@ -20,10 +23,16 @@ const NumPropInput: React.FC<NumPropInputProps> = ({ prop, id, title }) => {
     } = useInput(prop, id);
 
     return (
-        <div className={styles.container}>
-            <label className={styles.label}>{title}</label>
+        <span
+            className={flashing ? styles.flashingContainer : styles.container}
+            onClick={onFocus}
+        >
+            <FontAwesomeIcon
+                icon={icon}
+                size="lg"
+                color={flashing ? styles.darkPurple : 'black'}
+            />
             <input
-                style={{ backgroundColor: flashing ? 'green' : 'red' }}
                 className={styles.input}
                 value={inputVal}
                 onChange={e => setInputVal(e.currentTarget.value)}
@@ -32,7 +41,7 @@ const NumPropInput: React.FC<NumPropInputProps> = ({ prop, id, title }) => {
                 onKeyDown={onKeyDown}
                 ref={inputRef}
             />
-        </div>
+        </span>
     );
 };
 

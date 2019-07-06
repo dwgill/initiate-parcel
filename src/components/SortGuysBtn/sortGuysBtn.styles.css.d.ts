@@ -1,6 +1,7 @@
 declare const styles: {
-    readonly white: string;
-    readonly purple: string;
+    readonly constants: string;
+    readonly lightPurple: string;
+    readonly offWhite: string;
     readonly btn: string;
     readonly btnText: string;
     readonly btnIcon: string;

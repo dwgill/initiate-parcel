@@ -1,12 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Merriweather|Source+Sans+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
 
-@value sans-font: 'Source Sans Pro', sans-serif;
+@value sansFont: 'Source Sans Pro', sans-serif;
 
-@value serif-font: 'Vollkorn', serif;
-
-@value purple: #9077ad;
+@value lightPurple: #9077ad;
 @value darkPurple: #725f89;
-@value white: #fcf9ff;
+@value offWhite: #fcf9ff;
 
 @value miniSpace: 1rem;
 

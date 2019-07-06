@@ -1,12 +1,11 @@
-@value sans-font from "~/constants.css";
-@value darkPurple from "~/constants.css";
-@value purple from "~/constants.css";
+@value constants: "~/constants.css";
+@value lightPurple, darkPurple, offWhite, sansFont from constants;
 
 .btn {
-    background-color: purple;
+    background-color: lightPurple;
     border-color: transparent;
-    color: white;
-    font-family: sans-font;
+    color: offWhite;
+    font-family: sansFont;
     font-weight: bold;
     border-width: 1px;
     cursor: pointer;
@@ -32,6 +31,12 @@
 .btnIcon {
     height: 1.2rem;
     width: 1.2rem;
-    fill: white;
+    fill: offWhite;
     filter: invert(100%);
+}
+
+.boldBorder {
+    border-width: 0.2rem;
+    border-style: solid;
+    border-radius: 0.25rem;
 }

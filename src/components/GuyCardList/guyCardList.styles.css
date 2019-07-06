@@ -1,5 +1,4 @@
-@value constants: "~/constants.css";
-@value sans-font, serif-font, purple, white, gap, maxPhoneWidth from constants;
+@value maxPhoneWidth from "~/constants.css";
 
 .list {
 }

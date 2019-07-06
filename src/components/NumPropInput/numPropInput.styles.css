@@ -1,10 +1,43 @@
-@value sans-font from "~/constants.css";
+@value sansFont from "~/constants.css";
+@value darkPurple from "~/constants.css";
 
 .container {
+    composes: boldBorder from '~/commonClasses.css';
+    width: 100%;
+    max-width: 100%;
+    min-height: 100%;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+
+    /* padding: 0.4rem; */
+    box-sizing: border-box;
+    padding: 0.3rem;
+}
+
+.container:not(.flashingContainer) {
+    border-color: black;
+}
+
+.flashingContainer {
+    composes: container;
+    border-color: darkPurple;
 }
 
 .input {
+    align-self: stretch;
+    border: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
+    width: 1rem;
+    font-family: sansFont;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding-left: 0.4rem;
 }
 
-.label {
+.flashingContainer .input {
+    color: darkPurple;
 }

@@ -1,11 +1,12 @@
-@value white, purple from "~/constants.css";
+@value constants: "~/constants.css";
+@value lightPurple, offWhite from constants;
 
 .btn {
     composes: pure-button from global;
     composes: pure-button-primary from global;
     border-radius: 0.5em;
-    color: white;
-    background-color: purple;
+    color: offWhite;
+    background-color: lightPurple;
     width: 100%;
     /* display: flex;
     flex-flow: row nowrap;

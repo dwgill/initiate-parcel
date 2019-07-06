@@ -9,12 +9,6 @@ const asStr = (val: number | null | undefined): string => {
     return existy(val) ? String(val) : '';
 };
 
-export const useInputRef = () => {
-    const ref = useRef<HTMLInputElement>(null);
-
-    return ref;
-};
-
 export const useInput = (prop: NumGuyProp, id: string) => {
     const ref = useRef<HTMLInputElement>(null);
     const [reduxPropVal, setReduxPropVal] = useGuyProp(prop, id);
@@ -41,6 +35,15 @@ export const useInput = (prop: NumGuyProp, id: string) => {
         setFocus(false);
     }, [setFocus, setReduxPropVal, reduxPropVal, inputVal]);
 
+    const handleKeyDown = useCallback(
+        (event: React.KeyboardEvent<HTMLInputElement>) => {
+            if (event.key === 'Enter' && existy(ref.current)) {
+                ref.current.blur();
+            }
+        },
+        [],
+    );
+
     useEffect(() => {
         if (isFocused && existy(ref.current)) {
             ref.current.select();
@@ -55,17 +58,6 @@ export const useInput = (prop: NumGuyProp, id: string) => {
             }
         }
     }, [isFocused, reduxPropVal, inputVal, setInputVal]);
-
-    const handleKeyDown = useCallback(
-        (event: React.KeyboardEvent<HTMLInputElement>) => {
-            if (event.key === 'Enter') {
-                if (existy(ref.current)) {
-                    ref.current.blur();
-                }
-            }
-        },
-        [handleBlur],
-    );
 
     return {
         onFocus: handleFocus,

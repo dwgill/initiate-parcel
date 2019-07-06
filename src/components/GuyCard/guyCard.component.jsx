@@ -4,6 +4,10 @@ import { Flipped } from 'react-flip-toolkit';
 import NameInput from '~components/NameInput/nameInput.component';
 import styles from './guyCard.styles.css';
 import NumPropInput from '~components/NumPropInput/numPropInput.component';
+import { faHistory } from '@fortawesome/free-solid-svg-icons/faHistory';
+import { faHeart } from '@fortawesome/free-solid-svg-icons/faHeart';
+import { faShieldAlt } from '@fortawesome/free-solid-svg-icons/faShieldAlt';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const GuyCard = ({ guyId, index }) => {
     return (
@@ -20,26 +24,26 @@ const GuyCard = ({ guyId, index }) => {
                             <NameInput guyId={guyId} />
                         </span>
                         <span className={styles.initiative}>
-                            {/* <NumPropInput
-                                title="Initiative"
+                            <NumPropInput
+                                icon={faHistory}
                                 prop={'init'}
                                 id={guyId}
-                            /> */}
+                            />
                         </span>
                         <span className={styles.health}>
-                            {/* <NumPropInput
-                                title="Health"
+                            <NumPropInput
+                                icon={faHeart}
                                 prop={'hp'}
                                 id={guyId}
-                            /> */}
+                            />
                         </span>
 
                         <span className={styles.armorClass}>
-                            {/* <NumPropInput
-                                title="Armor Class"
+                            <NumPropInput
+                                icon={faShieldAlt}
                                 prop={'ac'}
                                 id={guyId}
-                            /> */}
+                            />
                         </span>
                         <span className={styles.notes} />
                         <span className={styles.buttons} />

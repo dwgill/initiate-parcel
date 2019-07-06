@@ -1,9 +1,9 @@
 @value constants: "~/constants.css";
-@value sans-font, serif-font, purple, white, gap, maxPhoneWidth from constants;
+@value lightPurple, offWhite, sansFont from constants;
 
 .header {
     composes: pure-g from global;
-    background-color: purple;
+    background-color: lightPurple;
     padding-top: 2em;
     padding-bottom: 2em;
     flex: 0;
@@ -20,8 +20,8 @@
 }
 
 .title {
-    font-family: sans-font;
-    color: white;
+    font-family: sansFont;
+    color: offWhite;
     font-weight: bold;
     margin: 0;
     padding: 0;
@@ -29,8 +29,8 @@
 }
 
 .subtitle {
-    font-family: sans-font;
-    color: white;
+    font-family: sansFont;
+    color: offWhite;
     margin: 0;
     padding: 0;
     font-size: 1.25em;
