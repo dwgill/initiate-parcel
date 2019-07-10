@@ -4,6 +4,7 @@ declare const styles: {
     readonly card: string;
     readonly cardInterior: string;
     readonly name: string;
+    readonly cardElement: string;
     readonly numberField: string;
     readonly initiative: string;
     readonly health: string;
@@ -11,5 +12,6 @@ declare const styles: {
     readonly notes: string;
     readonly buttons: string;
     readonly close: string;
+    readonly notesBtn: string;
 };
 export = styles;

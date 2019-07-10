@@ -16,15 +16,15 @@
     align-items: center;
 }
 
-.icon {
+.icon:not(.activeIcon) {
     color: offBlack;
 }
 
-.btn:focus .icon,
-.icon:focus {
+.activeIcon {
     color: darkPurple;
 }
 
-.btn:active .icon {
+.btn:hover .icon,
+.icon:hover {
     color: lightPurple;
 }

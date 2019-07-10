@@ -1,5 +1,9 @@
 @value sansFont from "~/constants.css";
 @value darkPurple from "~/constants.css";
+@value darkGreen from "~/constants.css";
+@value offWhite from "~/constants.css";
+
+@value flashColor: darkGreen;
 
 .container {
     composes: boldBorder from '~/commonClasses.css';
@@ -23,7 +27,7 @@
 
 .flashingContainer {
     composes: container;
-    border-color: darkPurple;
+    border-color: flashColor;
 }
 
 .input {
@@ -36,8 +40,9 @@
     font-size: 1.5rem;
     font-weight: bold;
     padding-left: 0.4rem;
+    background-color: transparent;
 }
 
 .flashingContainer .input {
-    color: darkPurple;
+    color: flashColor;
 }

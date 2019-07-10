@@ -2,10 +2,16 @@
 
 @value sansFont: 'Source Sans Pro', sans-serif;
 
+/* https://paletton.com/#uid=34w0u0kaSwb2YSx6yH+fPr7lolu */
 @value lightPurple: #9077ad;
-@value darkPurple: #725f89;
-@value offWhite: #fcf9ff;
+@value darkPurple: #6F5092;
+
+@value offWhite: #DFD5E9;
 @value offBlack: #121212;
+
+@value lightGreen: #E4F5A2;
+@value midGreen: #BACF69;
+@value darkGreen: #8EA437;
 
 @value miniSpace: 1rem;
 

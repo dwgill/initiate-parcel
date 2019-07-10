@@ -9,12 +9,12 @@ const asStr = (val: number | null | undefined): string => {
     return existy(val) ? String(val) : '';
 };
 
-export const useInput = (prop: NumGuyProp, id: string) => {
+export const useNumPropInput = (prop: NumGuyProp, id: string) => {
     const ref = useRef<HTMLInputElement>(null);
     const [reduxPropVal, setReduxPropVal] = useGuyProp(prop, id);
     const [inputVal, setInputVal] = useState(asStr(reduxPropVal));
     const [isFocused, setFocus] = useState(false);
-    const [flashing, flash] = useTempTrue();
+    const [flashing, flash] = useTempTrue(300);
 
     const handleFocus = useCallback(() => {
         setFocus(true);
@@ -30,6 +30,8 @@ export const useInput = (prop: NumGuyProp, id: string) => {
             if (wasDynamic) {
                 flash();
             }
+        } else if (inputVal === '' && existy(reduxPropVal)) {
+            setReduxPropVal(null);
         }
 
         setFocus(false);

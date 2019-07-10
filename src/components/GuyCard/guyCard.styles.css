@@ -21,12 +21,16 @@
     composes: pure-u-1 from global;
 }
 
+.cardElement {
+    box-sizing: border-box;
+    padding: 0.4rem;
+}
+
 .numberField {
     composes: pure-u-1 from global;
     composes: pure-u-sm-1-2 from global;
     composes: pure-u-md-1-3 from global;
-    box-sizing: border-box;
-    padding: 0.4rem;
+    composes: cardElement;
     min-height: 2.5rem;
 }
 
@@ -49,10 +53,18 @@
 }
 
 .buttons {
+    composes: pure-u-1 from global;
+    composes: cardElement;
 }
 
 .close {
     position: absolute;
     top: 0.2rem;
     right: 0.4rem;
+}
+
+.notesBtn {
+    position: absolute;
+    top: 0.2rem;
+    right: 1.7rem;
 }

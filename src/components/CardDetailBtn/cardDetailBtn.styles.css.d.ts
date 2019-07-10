@@ -5,5 +5,6 @@ declare const styles: {
     readonly darkPurple: string;
     readonly btn: string;
     readonly icon: string;
+    readonly activeIcon: string;
 };
 export = styles;
