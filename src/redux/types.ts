@@ -4,11 +4,13 @@ import { InitiateStore } from './store';
 import { ThunkDispatch, ThunkAction as RawThunkAction } from 'redux-thunk';
 import { TypedUseSelectorHook } from 'react-redux';
 import { PickByValue } from 'utility-types';
+import { useSelector as rawUseSelector } from 'react-redux';
 
 export { Action, ActionType as ActionTypes } from '~actions/types';
 
 export type Dispatch = InitiateStore['dispatch'];
 export type UseSelector = TypedUseSelectorHook<RootState>;
+export const useSelector: UseSelector = rawUseSelector;
 
 export type ThunkAction<R = void> = Dispatch extends ThunkDispatch<
     infer S,

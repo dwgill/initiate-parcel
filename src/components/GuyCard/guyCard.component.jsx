@@ -3,16 +3,17 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons/faHeart';
 import { faHistory } from '@fortawesome/free-solid-svg-icons/faHistory';
 import { faShieldAlt } from '@fortawesome/free-solid-svg-icons/faShieldAlt';
 import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import { Draggable } from 'react-beautiful-dnd';
 import { Flipped } from 'react-flip-toolkit';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import deleteGuy from '~actions/deleteGuy';
 import CardDetailBtn from '~components/CardDetailBtn/cardDetailBtn.component';
 import NameInput from '~components/NameInput/nameInput.component';
-import NumPropInput from '~components/NumPropInput/numPropInput.component';
-import styles from './guyCard.styles.css';
 import NotesInput from '~components/NotesInput/notesInput.component';
+import NumPropInput from '~components/NumPropInput/numPropInput.component';
+import getGuyIsActive from '~redux/selectors/getGuyIsActive';
+import styles from './guyCard.styles.css';
 
 const GuyCard = ({ guyId, index }) => {
     const dispatch = useDispatch();
@@ -26,12 +27,18 @@ const GuyCard = ({ guyId, index }) => {
         [setDisplayNotes],
     );
 
+    const selectGuyIsActive = useMemo(() => getGuyIsActive(guyId), [guyId]);
+    const guyIsActive = useSelector(selectGuyIsActive);
+    // const guyIsActive = false;
+
     return (
         <Draggable draggableId={guyId} index={index}>
             {provided => (
                 <Flipped flipId={guyId}>
                     <div
-                        className={styles.card}
+                        className={
+                            guyIsActive ? styles.activeCard : styles.card
+                        }
                         ref={provided.innerRef}
                         {...provided.draggableProps}
                         {...provided.dragHandleProps}

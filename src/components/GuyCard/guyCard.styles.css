@@ -1,6 +1,8 @@
 @value constants: "~/constants.css";
 @value primaryLightest from constants;
 @value offWhite from constants;
+@value tertiaryLight from constants;
+@value boldBorderWidth from constants;
 
 .card {
     composes: boldBorder from '~/commonClasses.css';
@@ -10,6 +12,16 @@
     padding-right: 1rem;
     padding-bottom: 0.5rem;
     position: relative;
+}
+
+.activeCard {
+    composes: card;
+}
+
+.card.activeCard {
+    border-left-width: 1rem;
+    padding-left: 0.2rem;
+    border-color: tertiaryLight;
 }
 
 .cardInterior {

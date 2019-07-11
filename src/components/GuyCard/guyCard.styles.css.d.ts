@@ -2,7 +2,10 @@ declare const styles: {
     readonly constants: string;
     readonly primaryLightest: string;
     readonly offWhite: string;
+    readonly tertiaryLight: string;
+    readonly boldBorderWidth: string;
     readonly card: string;
+    readonly activeCard: string;
     readonly cardInterior: string;
     readonly name: string;
     readonly cardElement: string;

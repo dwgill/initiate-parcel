@@ -1,6 +1,9 @@
+@value boldBorderWidth from "~/constants.css";
+@value boldBorderRadius from "~/constants.css";
+
 .boldBorder {
     box-sizing: border-box;
-    border-width: 0.2rem;
+    border-width: boldBorderWidth;
     border-style: solid;
-    border-radius: 0.25rem;
+    border-radius: boldBorderRadius;
 }

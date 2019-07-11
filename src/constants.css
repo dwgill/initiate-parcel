@@ -50,3 +50,6 @@
 @value maxDesktopWidth: calc(widescreen - 1px);
 @value minFullhdWidth: 1344px + calc(2 * gap);
 @value maxWidescreenWidth: calc(minFullhdWidth - 1px);
+
+@value boldBorderWidth: 0.2rem;
+@value boldBorderRadius: 0.25rem;
