@@ -1,12 +1,12 @@
-import { RootState, Transformer } from '~/redux/types';
+import { RootState } from '~/redux/types';
 import { DeleteGuyAction } from '~actions/deleteGuy';
-import flowTransformers from '~redux/transformers/flowTransformers';
-import unsetGuyProp from '~redux/transformers/unsetGuyProp';
-import removeIdFromOrdering from '~redux/transformers/removeIdFromOrdering';
-import loopActiveGuy from '~redux/transformers/loopActiveGuy';
 import iffElse from '~logic/iffElse';
 import getActiveGuy from '~redux/selectors/getActiveGuy';
+import flowTransformers from '~redux/transformers/flowTransformers';
+import loopActiveGuy from '~redux/transformers/loopActiveGuy';
+import removeIdFromOrdering from '~redux/transformers/removeIdFromOrdering';
 import setActiveGuyById from '~redux/transformers/setActiveGuyById';
+import unsetGuyProp from '~redux/transformers/unsetGuyProp';
 
 export { type } from '~actions/deleteGuy';
 
@@ -25,7 +25,10 @@ export const reducer = (
         unsetGuyProp('name', deletedGuy),
         unsetGuyProp('note', deletedGuy),
         removeIdFromOrdering(deletedGuy),
-        iffElse(deletedGuy === activeGuy)(loopActiveGuy)(
+        // prettier-ignore
+        iffElse(deletedGuy === activeGuy)(
+            loopActiveGuy
+        )(
             setActiveGuyById(activeGuy),
         ),
     )(prevState);
