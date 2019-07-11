@@ -1,9 +1,9 @@
 @value constants: "~/constants.css";
-@value lightPurple, offWhite, sansFont from constants;
+@value primaryLight, offWhite, sansFont from constants;
 
 .header {
     composes: pure-g from global;
-    background-color: lightPurple;
+    background-color: primaryLight;
     padding-top: 2em;
     padding-bottom: 2em;
     flex: 0;

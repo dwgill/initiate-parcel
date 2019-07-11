@@ -12,6 +12,7 @@ import CardDetailBtn from '~components/CardDetailBtn/cardDetailBtn.component';
 import NameInput from '~components/NameInput/nameInput.component';
 import NumPropInput from '~components/NumPropInput/numPropInput.component';
 import styles from './guyCard.styles.css';
+import NotesInput from '~components/NotesInput/notesInput.component';
 
 const GuyCard = ({ guyId, index }) => {
     const dispatch = useDispatch();
@@ -35,19 +36,6 @@ const GuyCard = ({ guyId, index }) => {
                         {...provided.draggableProps}
                         {...provided.dragHandleProps}
                     >
-                        <span className={styles.close}>
-                            <CardDetailBtn
-                                onClick={handleDeleteGuy}
-                                icon={faTimes}
-                            />
-                        </span>
-                        <span className={styles.notesBtn}>
-                            <CardDetailBtn
-                                onClick={toggleNotes}
-                                icon={faCommentAlt}
-                                active={displayNotes}
-                            />
-                        </span>
                         <div className={styles.cardInterior}>
                             <span className={styles.name}>
                                 <NameInput guyId={guyId} />
@@ -56,14 +44,14 @@ const GuyCard = ({ guyId, index }) => {
                                 <NumPropInput
                                     icon={faHistory}
                                     prop={'init'}
-                                    id={guyId}
+                                    guyId={guyId}
                                 />
                             </span>
                             <span className={styles.health}>
                                 <NumPropInput
                                     icon={faHeart}
                                     prop={'hp'}
-                                    id={guyId}
+                                    guyId={guyId}
                                 />
                             </span>
 
@@ -71,13 +59,28 @@ const GuyCard = ({ guyId, index }) => {
                                 <NumPropInput
                                     icon={faShieldAlt}
                                     prop={'ac'}
-                                    id={guyId}
+                                    guyId={guyId}
                                 />
                             </span>
-                            <span className={styles.notes}>
-                                {displayNotes && 'notes!'}
-                            </span>
+                            {displayNotes && (
+                                <span className={styles.notes}>
+                                    <NotesInput guyId={guyId} />
+                                </span>
+                            )}
                         </div>
+                        <span className={styles.notesBtn}>
+                            <CardDetailBtn
+                                onClick={toggleNotes}
+                                icon={faCommentAlt}
+                                active={displayNotes}
+                            />
+                        </span>
+                        <span className={styles.close}>
+                            <CardDetailBtn
+                                onClick={handleDeleteGuy}
+                                icon={faTimes}
+                            />
+                        </span>
                     </div>
                 </Flipped>
             )}

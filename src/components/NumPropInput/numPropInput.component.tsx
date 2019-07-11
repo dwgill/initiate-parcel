@@ -7,12 +7,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 type NumPropInputProps = {
     prop: NumGuyProp;
-    id: string;
+    guyId: string;
     title: string;
     icon: IconDefinition;
 };
 
-const NumPropInput: React.FC<NumPropInputProps> = ({ prop, id, icon }) => {
+const NumPropInput: React.FC<NumPropInputProps> = ({ prop, guyId, icon }) => {
     const {
         onBlur,
         onFocus,
@@ -20,7 +20,7 @@ const NumPropInput: React.FC<NumPropInputProps> = ({ prop, id, icon }) => {
         onKeyDown,
         inputRef,
         flashing,
-    } = useNumPropInput(prop, id);
+    } = useNumPropInput(prop, guyId);
 
     const iconElement = React.useMemo(
         () => (

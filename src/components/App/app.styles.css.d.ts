@@ -1,4 +1,4 @@
 declare const styles: {
-    readonly app: string;
+    readonly offWhite: string;
 };
 export = styles;

@@ -2,12 +2,38 @@
 
 @value sansFont: 'Source Sans Pro', sans-serif;
 
-/* https://paletton.com/#uid=34w0u0kaSwb2YSx6yH+fPr7lolu */
+/* Colors */
+@value primary: #552B72;
+@value primaryLight: #734C8E;
+@value primaryLightest: #9575AB;
+@value primaryDark: #3A1355;
+@value primaryDarkest: #230339;
+
+@value secondaryLightest: #FDA8AB;
+@value secondaryLight: #D3696C;
+@value secondary: #A8383B;
+@value secondaryDark: #7E1518;
+@value secondaryDarkest: #540002;
+
+@value tertiaryLightest: #7689A9;
+@value tertiaryLight: #4D658D;
+@value tertiary: #2C4770;
+@value tertiaryDark: #152D54;
+@value tertiaryDarkest: #051938;
+
+@value complementaryLightest: #FFFDAA;
+@value complementaryLight: #D4D26A;
+@value complementary: #AAA839;
+@value complementaryDark: #807D15;
+@value complementaryDarkest: #555300;
+
+@value offWhite: #F8F8FF;
+@value offBlack: #121212;
+
 @value lightPurple: #9077ad;
 @value darkPurple: #6F5092;
 
-@value offWhite: #DFD5E9;
-@value offBlack: #121212;
+@value lightestPurple: #DFD5E9;
 
 @value lightGreen: #E4F5A2;
 @value midGreen: #BACF69;

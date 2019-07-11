@@ -1,0 +1,19 @@
+@value sansFont from "~/constants.css";
+@value offBlack from "~/constants.css";
+
+.textArea {
+    composes: boldBorder from '~/commonClasses.css';
+    min-width: 100%;
+    max-width: 100%;
+    resize: none;
+    border-color: offBlack;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.container {
+    min-width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 0.3rem;
+}

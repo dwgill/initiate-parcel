@@ -1,9 +1,10 @@
 @value constants: "~/constants.css";
+@value primaryLightest from constants;
 @value offWhite from constants;
 
 .card {
     composes: boldBorder from '~/commonClasses.css';
-    background-color: #ffffff;
+    background-color: offWhite;
     margin-top: 1rem;
     padding-left: 1rem;
     padding-right: 1rem;
@@ -48,8 +49,8 @@
 
 .notes {
     composes: pure-u-1 from global;
-    composes: pure-u-sm-1-2 from global;
-    composes: pure-u-md-1 from global;
+    /* composes: pure-u-sm-1-2 from global;
+    composes: pure-u-md-1 from global; */
 }
 
 .buttons {

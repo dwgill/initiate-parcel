@@ -8,7 +8,7 @@ type SetGuyProp = <P extends GuyProp>(
 ) => Transformer;
 
 const setGuyProp: SetGuyProp = (prop, id, val) => prevState => {
-    const newState = {
+    const newState: typeof prevState = {
         ...prevState,
         guyProperties: {
             ...prevState.guyProperties,

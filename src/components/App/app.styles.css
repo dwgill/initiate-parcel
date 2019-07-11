@@ -1,3 +1,5 @@
+@value offWhite from "~/constants.css";
+
 :global {
     @import 'purecss/build/pure.css';
     @import 'purecss/build/grids-responsive.css';
@@ -15,6 +17,7 @@
     flex-flow: column nowrap;
     justify-content: flex-start;
     align-items: stretch;
+    background-color: offWhite;
 }
 
 :global html {

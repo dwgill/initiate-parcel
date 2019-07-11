@@ -1,9 +1,12 @@
 @value sansFont from "~/constants.css";
-@value darkPurple from "~/constants.css";
-@value darkGreen from "~/constants.css";
+@value primaryDark from "~/constants.css";
+@value tertiaryLight from "~/constants.css";
+@value tertiaryLightest from "~/constants.css";
+@value primaryLightest from "~/constants.css";
 @value offWhite from "~/constants.css";
+@value offBlack from "~/constants.css";
 
-@value flashColor: darkGreen;
+@value flashColor: tertiaryLight;
 
 .container {
     composes: boldBorder from '~/commonClasses.css';
@@ -15,19 +18,23 @@
     flex-flow: row nowrap;
     justify-content: flex-start;
     align-items: center;
+    background-color: offWhite;
 
-    /* padding: 0.4rem; */
-    box-sizing: border-box;
     padding: 0.3rem;
 }
 
 .container:not(.flashingContainer) {
-    border-color: black;
+    border-color: offBlack;
 }
 
 .flashingContainer {
     composes: container;
     border-color: flashColor;
+}
+
+.container.flashingContainer {
+    border-width: 0.3rem;
+    padding: 0.2rem;
 }
 
 .input {

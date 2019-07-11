@@ -1,12 +1,12 @@
 @value constants: "~/constants.css";
-@value lightPurple, offWhite from constants;
+@value primaryLight, primaryLightest, offWhite from constants;
 
 .btn {
     composes: pure-button from global;
     composes: pure-button-primary from global;
     border-radius: 0.5em;
     color: offWhite;
-    background-color: lightPurple;
+    background-color: primaryLight;
     width: 100%;
 }
 

@@ -1,5 +1,6 @@
 declare const styles: {
     readonly constants: string;
+    readonly primaryLightest: string;
     readonly offWhite: string;
     readonly card: string;
     readonly cardInterior: string;

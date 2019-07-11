@@ -1,5 +1,5 @@
 @value constants: "~/constants.css";
-@value offBlack, lightPurple, darkPurple from constants;
+@value offBlack, tertiary, tertiaryLightest, primary from constants;
 
 .btn {
     background-color: transparent;
@@ -21,10 +21,14 @@
 }
 
 .activeIcon {
-    color: darkPurple;
+    color: primary;
+}
+
+.btn:focus .icon {
+    color: tertiaryLightest;
 }
 
 .btn:hover .icon,
 .icon:hover {
-    color: lightPurple;
+    color: tertiary;
 }
