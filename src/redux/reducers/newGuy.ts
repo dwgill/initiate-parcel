@@ -5,6 +5,7 @@ import setGuyProp from '~redux/transformers/setGuyProp';
 import addIdToOrdering from '~redux/transformers/addIdToOrdering';
 import sortGuyOrder from '~redux/transformers/sortGuyOrder';
 import getAutoSort from '~redux/selectors/getAutoSort';
+import iff from '~logic/iff';
 
 export { type } from '~actions/newGuy';
 
@@ -21,6 +22,6 @@ export const reducer = (
         setGuyProp('name', newGuyId, ''),
         setGuyProp('note', newGuyId, ''),
         addIdToOrdering(newGuyId),
-        sortGuyOrder(getAutoSort(prevState)),
+        iff(getAutoSort(prevState))(sortGuyOrder),
     )(prevState);
 };

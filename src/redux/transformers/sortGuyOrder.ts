@@ -3,10 +3,8 @@ import existy from '~logic/existy';
 import getGuyProp from '~redux/selectors/getGuyProp';
 import { Transformer } from '~redux/types';
 
-type SortGuyOrder = (shouldSort?: boolean) => Transformer;
-
-const sortGuyOrder: SortGuyOrder = (shouldSort = true) => prevState => {
-    if (!shouldSort) {
+const sortGuyOrder: Transformer = prevState => {
+    if (prevState.guyOrdering.length <= 0) {
         return prevState;
     }
 

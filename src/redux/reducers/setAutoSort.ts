@@ -3,6 +3,7 @@ import flowTransformers from '~redux/transformers/composeTransformers';
 import setAutoSort from '~redux/transformers/setAutoSort';
 import sortGuyOrder from '~redux/transformers/sortGuyOrder';
 import { RootState } from '~redux/types';
+import iff from '~logic/iff';
 
 export const type = autoSortType;
 
@@ -15,6 +16,6 @@ export const reducer = (
     // prettier-ignore
     return flowTransformers(
         setAutoSort(shouldSort),
-        sortGuyOrder(shouldSort),
+        iff(shouldSort)(sortGuyOrder),
     )(prevState);
 };
