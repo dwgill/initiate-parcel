@@ -3,6 +3,7 @@ import styles from './initiativePanel.styles.css';
 import GuyCardList from '~components/GuyCardList/guyCardList.component';
 import SortGuysBtn from '~components/SortGuysBtn/sortGuysbtn.component';
 import NewGuyBtn from '~components/NewGuyBtn/newGuyBtn.component';
+import NextGuyBtn from '../NextGuyBtn/nextGuyBtn.component';
 
 const InitiativePanel = () => {
     return (
@@ -10,6 +11,9 @@ const InitiativePanel = () => {
             <div className={styles.spacing} />
             <div className={styles.panel}>
                 <div className={styles.bar}>
+                    <span className={styles.barElement}>
+                        <NextGuyBtn />
+                    </span>
                     <span className={styles.barElement}>
                         <NewGuyBtn />
                     </span>
