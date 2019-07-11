@@ -4,6 +4,7 @@ import * as editGuy from './editGuy';
 import * as newGuy from './newGuy';
 import * as setAutoSort from './setAutoSort';
 import * as setGuyIndex from './setGuyIndex';
+import * as nextGuy from './nextGuy';
 
 export const coreReducer: Reducer = (state = initialState, action) => {
     switch (action.type) {
@@ -17,6 +18,8 @@ export const coreReducer: Reducer = (state = initialState, action) => {
             return setAutoSort.reducer(state, action);
         case setGuyIndex.type:
             return setGuyIndex.reducer(state, action);
+        case nextGuy.type:
+            return nextGuy.reducer(state, action);
         default:
             return unacceptableDefault(state, action);
     }

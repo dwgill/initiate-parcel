@@ -1,7 +1,7 @@
 import { RootState, allGuyProps } from '~redux/types';
 
 const checkPropDictsMirrorIds = (state: RootState): void => {
-    const idSet = new Set(state.guyOrdering);
+    const idSet = new Set(state.guyOrdering.ordering);
     for (const guyProp of allGuyProps) {
         const otherIdSet = new Set(Object.keys(state.guyProperties[guyProp]));
         for (const otherId of otherIdSet) {
@@ -23,7 +23,7 @@ const checkPropDictsMirrorIds = (state: RootState): void => {
 };
 
 const getInitiativeOrder = (state: RootState): ReadonlyArray<string> => {
-    const guyIds = state.guyOrdering;
+    const guyIds = state.guyOrdering.ordering;
 
     if (process.env.NODE_ENV === 'development') {
         checkPropDictsMirrorIds(state);

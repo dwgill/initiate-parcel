@@ -22,7 +22,8 @@ type Dict<V> = {
     [key: string]: V;
 };
 
-export interface RootState {
+export interface RootStateV1 {
+    version: 1;
     guyProperties: {
         /** record of all the initiative rolls of the combatants. */
         init: Dict<number | null>;
@@ -35,11 +36,16 @@ export interface RootState {
         /** Dict<otes on each combatant. */
         note: Dict<string>;
     };
-    guyOrdering: string[];
+    guyOrdering: {
+        ordering: string[];
+        active: number | null;
+    };
     settings: {
         autoSort: boolean;
     };
 }
+
+export type RootState = RootStateV1;
 
 // This type represents the official "name" of a property of a guy
 export type GuyProp = keyof RootState['guyProperties'];
@@ -83,10 +89,14 @@ export const initialState: RootState = {
         name: {},
         note: {},
     },
-    guyOrdering: [],
+    guyOrdering: {
+        ordering: [],
+        active: null,
+    },
     settings: {
         autoSort: true,
     },
+    version: 1,
 };
 
 // A set of all the possible guy property names.

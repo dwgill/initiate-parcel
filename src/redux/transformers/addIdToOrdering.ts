@@ -1,11 +1,12 @@
 import { Transformer } from '~redux/types';
 
-type AddIdToOrdering = (id: string) => Transformer;
-
-const addIdToOrdering: AddIdToOrdering = id => prevState => {
+const addIdToOrdering = (id: string): Transformer => prevState => {
     return {
         ...prevState,
-        guyOrdering: [id, ...prevState.guyOrdering],
+        guyOrdering: {
+            ordering: [id, ...prevState.guyOrdering.ordering],
+            active: prevState.guyOrdering.active,
+        },
     };
 };
 

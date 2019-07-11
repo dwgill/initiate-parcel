@@ -6,8 +6,11 @@ const setGuyOrderIndex = (
     index: number,
 ): Transformer => prevState => {
     const newState = produce(prevState, draft => {
-        draft.guyOrdering.splice(draft.guyOrdering.indexOf(guyId), 1);
-        draft.guyOrdering.splice(index, 0, guyId);
+        draft.guyOrdering.ordering.splice(
+            draft.guyOrdering.ordering.indexOf(guyId),
+            1,
+        );
+        draft.guyOrdering.ordering.splice(index, 0, guyId);
     });
 
     return newState;
