@@ -8,7 +8,7 @@ const useGuyCardDragEnd = (): OnDragEndResponder => {
     const dispatch = <Dispatch>useDispatch();
 
     return result => {
-        const { source, destination, draggableId } = result;
+        const { source, destination, draggableId: guyId } = result;
 
         if (!existy(destination)) {
             return;
@@ -21,7 +21,7 @@ const useGuyCardDragEnd = (): OnDragEndResponder => {
             return;
         }
 
-        dispatch(setGuyIndex(draggableId, destination.index));
+        dispatch(setGuyIndex(guyId, destination.index));
     };
 };
 
