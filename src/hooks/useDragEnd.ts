@@ -1,7 +1,7 @@
+import { OnDragEndResponder } from 'react-beautiful-dnd';
 import { useDispatch } from 'react-redux';
 import setGuyIndex from '~actions/setGuyIndex';
 import existy from '~logic/existy';
-import { OnDragEndResponder } from 'react-beautiful-dnd';
 import { Dispatch } from '~redux/types';
 
 const useGuyCardDragEnd = (): OnDragEndResponder => {
