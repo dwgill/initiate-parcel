@@ -1,6 +1,8 @@
 import identity from './identity';
 
-type Iff = (pred: boolean) => <V>(func: (arg: V) => V) => (arg: V) => V;
+type Func<V> = (arg: V) => V;
+
+type Iff = (pred: boolean) => <V>(func: Func<V>) => Func<V>;
 
 const iff: Iff = pred => func => (pred ? func : identity);
 
