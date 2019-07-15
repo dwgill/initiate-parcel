@@ -11,7 +11,7 @@ type Props = {
 const InitiativePanelButton: React.FC<Props> = React.memo(
     ({ onClick, icon }) => (
         <button className={styles.btn} onClick={onClick}>
-            <FontAwesomeIcon icon={icon} size="2x" color={styles.white} />
+            <FontAwesomeIcon icon={icon} size="2x" color={styles.offWhite} />
         </button>
     ),
 );
