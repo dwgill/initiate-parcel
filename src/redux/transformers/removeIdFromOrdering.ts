@@ -4,6 +4,7 @@ const removeIdFromOrdering = (id: string): Transformer => prevState => {
     const newState: typeof prevState = {
         ...prevState,
         guyOrdering: {
+            ...prevState.guyOrdering,
             ordering: prevState.guyOrdering.ordering.filter(
                 otherId => otherId !== id,
             ),

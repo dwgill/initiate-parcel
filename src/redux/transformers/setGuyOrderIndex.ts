@@ -3,14 +3,12 @@ import produce from 'immer';
 
 const setGuyOrderIndex = (
     guyId: string,
-    index: number,
+    newIndex: number,
 ): Transformer => prevState => {
     const newState = produce(prevState, draft => {
-        draft.guyOrdering.ordering.splice(
-            draft.guyOrdering.ordering.indexOf(guyId),
-            1,
-        );
-        draft.guyOrdering.ordering.splice(index, 0, guyId);
+        const prevIndex = draft.guyOrdering.ordering.indexOf(guyId);
+        draft.guyOrdering.ordering.splice(prevIndex, 1);
+        draft.guyOrdering.ordering.splice(newIndex, 0, guyId);
     });
 
     return newState;

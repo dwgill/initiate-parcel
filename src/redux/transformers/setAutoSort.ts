@@ -1,12 +1,13 @@
-import produce from 'immer';
 import { Transformer } from '../types';
 
 const setAutoSort = (shouldSort: boolean): Transformer => prevState => {
-    const newState: typeof prevState = produce(prevState, draft => {
-        draft.settings.autoSort = shouldSort;
-    });
-
-    return newState;
+    return {
+        ...prevState,
+        settings: {
+            ...prevState.settings,
+            autoSort: shouldSort,
+        },
+    };
 };
 
 export default setAutoSort;
