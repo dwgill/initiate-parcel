@@ -7,12 +7,12 @@
     "author": "",
     "license": "ISC",
     "scripts": {
-        "clean": "rimraf dist .cache",
-        "dev-serve": "parcel src/index.html",
-        "dev-build": "NODE_ENV=development parcel build src/index.html --no-minify",
+        "clean": "rimraf dist build .cache",
+        "dev-serve": "parcel --out-dir build src/index.html",
+        "dev-build": "NODE_ENV=development parcel build --out-dir build --no-minify src/index.html",
         "dev-typecheck": "tsc --noEmit --watch -p ./tsconfig.json",
-        "prod-build": "parcel build src/index.html",
-        "build": "parcel build src/index.html"
+        "prod-build": "parcel build --out-dir build src/index.html",
+        "build": "yarn prod-build"
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.9.0",

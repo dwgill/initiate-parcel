@@ -47,7 +47,7 @@
 @value minDesktopWidth: 960px + calc(2 * gap);
 @value maxTabletWidth: calc(minDesktopWidth - 1px);
 @value minWidescreenWidth: 1152px + calc(2 * gap);
-@value maxDesktopWidth: calc(widescreen - 1px);
+@value maxDesktopWidth: calc(minWidescreenWidth - 1px);
 @value minFullhdWidth: 1344px + calc(2 * gap);
 @value maxWidescreenWidth: calc(minFullhdWidth - 1px);
 
