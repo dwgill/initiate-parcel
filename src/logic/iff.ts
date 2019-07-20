@@ -1,9 +1,7 @@
 import identity from './identity';
+import iffElse from './iffElse';
 
-type Func<V> = (arg: V) => V;
-
-type Iff = (pred: boolean) => <V>(func: Func<V>) => Func<V>;
-
-const iff: Iff = pred => func => (pred ? func : identity);
+const iff = (pred: boolean) => <V>(ifTrue: (arg: V) => V) =>
+    iffElse(pred)(ifTrue)(x => x);
 
 export default iff;
