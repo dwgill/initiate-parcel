@@ -1,21 +1,19 @@
 {
     "compilerOptions": {
-        "outDir": "./dist/",
-        "sourceMap": true,
-        "strict": true,
-        "noImplicitReturns": true,
-        "noImplicitAny": true,
+        "allowJs": true,
+        "allowSyntheticDefaultImports": true,
+        "baseUrl": ".",
+        "downlevelIteration": true,
+        "jsx": "react",
         "module": "es6",
         "moduleResolution": "node",
-        "target": "es5",
-        "allowJs": true,
-        "jsx": "react",
-        "baseUrl": ".",
-        "paths": {
-            "~*": ["./src/*"]
-        },
-        "downlevelIteration": true,
-        "allowSyntheticDefaultImports": true
+        "noImplicitAny": true,
+        "noImplicitReturns": true,
+        "outDir": "./dist/",
+        "paths": { "~*": ["./src/*"] },
+        "sourceMap": true,
+        "strict": true,
+        "target": "es5"
     },
     "include": ["./src/**/*"]
 }
